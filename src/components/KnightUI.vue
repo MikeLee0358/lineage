@@ -57,7 +57,7 @@ knightStore.out.repeatTalkChatEvent(15);
       position: relative;
       z-index: 1;
       top: 15vh;
-      color: var(--color-white);
+      color: #e5e7eb;
       font-size: clamp(12px, 2.6vh, 30px);
 
       &::before {
@@ -100,7 +100,7 @@ knightStore.out.repeatTalkChatEvent(15);
       position: relative;
       z-index: 1;
       top: 15vh;
-      color: var(--color-white);
+      color: #e5e7eb;
       font-size: clamp(12px, 2.6vh, 30px);
 
       &::before {

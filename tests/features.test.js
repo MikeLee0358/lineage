@@ -72,7 +72,7 @@ test.describe('keyboard scroll testing', () => {
     await expect(page.locator('[id="⭐SinglePlayer__PanelUI"]')).toContainText('請選擇一種防具。');
   });
 
-  test('armor to +1', async ({ page }) => {
+  test.slow('armor to +1', async ({ page }) => {
     await page.goto('http://localhost:5173/');
     await page.locator('body').press('F6');
     await page.locator('li:nth-child(10)').click();

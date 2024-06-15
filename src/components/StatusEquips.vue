@@ -159,7 +159,7 @@ ${equip.occupation}`;
       border-color: #c7c2be #817f80 #817f80 #c7c2be;
       white-space: pre-wrap;
       line-height: 100%;
-      color: var(--color-white);
+      color: #e5e7eb;
     }
 
     &:hover::after {
@@ -237,7 +237,7 @@ ${equip.occupation}`;
       &.belt::after,
       &.left-ring::after,
       &.right-ring::after {
-        color: var(--color-grey);
+        color: #9ca3af;
         border: unset;
         background: unset;
         padding: unset;

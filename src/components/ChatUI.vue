@@ -26,7 +26,7 @@ const chatStore = useChatStore();
     line-height: 100%;
     transform: scaleY(0.5);
     font-size: 1.85vw;
-    color: var(--color-yellow);
+    color: #fef9c3;
   }
 }
 </style>
