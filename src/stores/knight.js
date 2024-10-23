@@ -2,7 +2,6 @@ import { reactive } from "vue";
 import { defineStore } from "pinia";
 import { useChatStore } from "./chat";
 import { useAlgorithmStore } from "./algorithm";
-import { unitTest } from "../utils/UnitTest";
 
 export const useKnightStore = defineStore("knight", () => {
   const chatStore = useChatStore();
@@ -17,10 +16,6 @@ export const useKnightStore = defineStore("knight", () => {
     }),
     in: {
       GameChatTime: (second) => {
-        {
-          unitTest(second, "number");
-        }
-
         setTimeout(function () {
           knight.data.isShowGameChat = false;
           knight.data.isStopFunction = false;
@@ -28,11 +23,6 @@ export const useKnightStore = defineStore("knight", () => {
         }, second * 1000);
       },
       getArrayFull: (array, string) => {
-        {
-          unitTest(array, "array");
-          unitTest(string, "string");
-        }
-
         let result = [];
         for (let i = 0; i < array.length; i++) {
           result.push(string);
@@ -42,10 +32,6 @@ export const useKnightStore = defineStore("knight", () => {
     },
     out: {
       getGameChatEvent: (chatEvent) => {
-        {
-          unitTest(chatEvent, "string");
-        }
-
         switch (chatEvent) {
           case "weaponSuccess":
             knight.data.chatMsg = "果然是天選之人... 佩服佩服";
@@ -127,10 +113,6 @@ export const useKnightStore = defineStore("knight", () => {
         knight.in.GameChatTime(10);
       },
       repeatTalkChatEvent: (second) => {
-        {
-          unitTest(second, "number");
-        }
-
         setInterval(function () {
           const randomNum = Math.floor(Math.random() * 10);
 

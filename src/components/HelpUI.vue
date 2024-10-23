@@ -18,7 +18,6 @@
 <script setup>
 import { useAudioStore } from "../stores/music";
 import { useHelperStore } from "../stores/helper";
-import { unitTest } from "../utils/UnitTest";
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
 
@@ -31,11 +30,6 @@ const HelpUI = {
   },
   out: {
     handleClick: (e) => {
-      {
-        unitTest(e.target.tagName, "string");
-        unitTest(e.target.className, "string");
-      }
-
       if (e.target.className === "--close") {
         HelpUI.in.handleClose();
       }

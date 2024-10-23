@@ -4,7 +4,6 @@ import { useChatStore } from "./chat";
 import { useRoleStore } from "./role";
 import { useScrollStore } from "./scroll";
 import { useKnightStore } from "./knight";
-import { unitTest } from "../utils/UnitTest";
 
 export const useAlgorithmStore = defineStore("algorithm", () => {
   const roleStore = useRoleStore();
@@ -30,10 +29,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
     in: {
       reuse: {
         getRandomStateOneTo: (value) => {
-          {
-            unitTest(value, "number");
-          }
-
           algorithm.data.dice.state = Number(
             Math.floor(Math.random() * value) + 1,
           );
@@ -96,11 +91,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         algorithm.data.dice.value = Number((Math.random() * 100).toFixed(2));
       },
       handleFailure: (equip, event) => {
-        {
-          unitTest(equip, "object");
-          unitTest(event, "object");
-        }
-
         if (Math.abs(algorithm.data.target.value) === 9) {
           knightStore.out.getGameChatEvent("weaponFailure");
         }
@@ -137,11 +127,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       updateEquipValue: () => {
-        {
-          unitTest(algorithm.data.target.value, "number");
-          unitTest(algorithm.data.dice.state, "number");
-        }
-
         if (scrollStore.out.getIsScrollType("cursed")) {
           algorithm.data.target.value--;
         } else {
@@ -149,10 +134,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       getTargetCategoryEquipType: () => {
-        {
-          unitTest(algorithm.data.target.category, "string");
-        }
-
         return algorithm.data.target.category
           .substring(0, 6)
           .toLowerCase()
@@ -236,33 +217,17 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
     },
     out: {
       updateData: (equip) => {
-        {
-          unitTest(equip.name, "string");
-          unitTest(equip.value, "number");
-          unitTest(equip.category, "string");
-          unitTest(equip.safetyValue, "number");
-        }
-
         algorithm.data.target.name = equip.name;
         algorithm.data.target.value = equip.value;
         algorithm.data.target.category = equip.category;
         algorithm.data.target.safetyValue = equip.safetyValue;
       },
       getIsCategoryType: (text) => {
-        {
-          unitTest(text, "string");
-        }
-
         return algorithm.data.target.category
           .toLowerCase()
           .includes(text.toLowerCase());
       },
       doAlgorithm: (equip, event) => {
-        {
-          unitTest(equip, "object");
-          unitTest(event, "object");
-        }
-
         if (knightStore.data.isStopFunction) return;
         if (!algorithm.in.getIsMatchedScrollEquipType()) return;
 

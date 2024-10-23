@@ -11,7 +11,6 @@
 import { RouterLink } from "vue-router";
 import { useHelperStore } from "../stores/helper";
 import { useAudioStore } from "../stores/music";
-import { unitTest } from "../utils/UnitTest";
 
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
@@ -19,10 +18,6 @@ const audioStore = useAudioStore();
 const SystemUI = {
   out: {
     handleClick: (e) => {
-      {
-        unitTest(helperStore.data.btnState, "string");
-      }
-
       if (["--cancel", "--close"].includes(e.target.className)) {
         helperStore.data.btnState = "--close";
       }

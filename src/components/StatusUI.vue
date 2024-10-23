@@ -11,7 +11,6 @@ import StatusNumbers from "../components/StatusNumbers.vue";
 import StatusEquips from "../components/StatusEquips.vue";
 import { useHelperStore } from "../stores/helper";
 import { useAudioStore } from "../stores/music";
-import { unitTest } from "../utils/UnitTest";
 
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
@@ -19,11 +18,6 @@ const audioStore = useAudioStore();
 const StatusUI = {
   in: {
     handleClose: () => {
-      {
-        unitTest(helperStore.data.btnState, "string");
-        unitTest(helperStore.data.isDefault, "boolean");
-      }
-
       audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
       helperStore.data.btnState = "--close";
       helperStore.data.isDefault = false;

@@ -59,10 +59,10 @@ const ItemsUI = {
     getSlotColor: (imgUrl) => {
       //control primary colors to display text color through js logic
       const color = {
-        grey: "var(--color-grey)",
-        white: "var(--color-white)",
-        yellow: "var(--color-yellow)",
-        red: "var(--color-red)",
+        grey: "#aaa9a9",
+        white: "#e8e8e8",
+        yellow: "#e9ee8b",
+        red: "#ff2424",
       };
 
       if (/blessed/g.test(imgUrl)) {
@@ -133,6 +133,10 @@ onBeforeRouteLeave(() => {
     background-image: url("@/assets/slot/slot_empty.webp");
     background-size: cover;
     background-repeat: round;
+  }
+  img {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

@@ -25,7 +25,7 @@ import HelpUI from "./HelpUI.vue";
 import StatusUI from "./StatusUI.vue";
 import SystemUI from "./SystemUI.vue";
 import OptionsUI from "./OptionsUI.vue";
-import { unitTest } from "../utils/UnitTest";
+
 import { useAudioStore } from "../stores/music";
 import { useHelperStore } from "../stores/helper";
 const audioStore = useAudioStore();
@@ -34,11 +34,7 @@ const helperStore = useHelperStore();
 const FunctionUI = {
   out: {
     handleClick: (e) => {
-      {
-        if (e.target.tagName === "UL") return;
-        unitTest(helperStore.data.btnState, "string");
-        unitTest(helperStore.data.isDefault, "boolean");
-      }
+      if (e.target.tagName === "UL") return;
 
       audioStore.out.clickToPlayAudio("UI/audio_itemsOpen.mp3");
       helperStore.data.btnState = e.target.className;

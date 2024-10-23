@@ -34,6 +34,8 @@ const audioStore = useAudioStore();
 
 <style lang="scss">
 #⭐SinglePlayer {
+  background: black;
+  color: #e5e7eb;
   height: 100vh;
   width: 100vw;
   background-image: url("@/assets/knight/knight_background.webp");

@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { reactive } from "vue";
 import { useScrollStore } from "./scroll";
 import { useAlgorithmStore } from "./algorithm";
-import { unitTest } from "../utils/UnitTest";
 
 export const useChatStore = defineStore("chat", () => {
   const scrollStore = useScrollStore();
@@ -15,18 +14,10 @@ export const useChatStore = defineStore("chat", () => {
     in: {
       reuse: {
         pushAndShiftArray: (text) => {
-          {
-            unitTest(text, "string");
-          }
-
           chat.data.lines.push(text);
           chat.data.lines.shift();
         },
         showNumber: () => {
-          {
-            unitTest(algorithmStore.data.target.value, "number");
-          }
-
           return algorithmStore.data.target.value < 0
             ? algorithmStore.data.target.value
             : `+${algorithmStore.data.target.value}`;
@@ -48,10 +39,6 @@ export const useChatStore = defineStore("chat", () => {
         chat.in.reuse.pushAndShiftArray("請選擇一種武器。");
       },
       updateForOne: () => {
-        {
-          unitTest(algorithmStore.data.target.name, "string");
-        }
-
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -59,10 +46,6 @@ export const useChatStore = defineStore("chat", () => {
         );
       },
       updateForGone: () => {
-        {
-          unitTest(algorithmStore.data.target.name, "string");
-        }
-
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -70,10 +53,6 @@ export const useChatStore = defineStore("chat", () => {
         );
       },
       updateForNope: () => {
-        {
-          unitTest(algorithmStore.data.target.name, "string");
-        }
-
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -81,10 +60,6 @@ export const useChatStore = defineStore("chat", () => {
         );
       },
       updateForTwoUp: () => {
-        {
-          unitTest(algorithmStore.data.target.name, "string");
-        }
-
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -97,10 +72,7 @@ export const useChatStore = defineStore("chat", () => {
         chat.data.lines = Array(7);
       },
       updateChatScroll: () => {
-        {
-          if (scrollStore.data.targetScroll === "none") return;
-          unitTest(scrollStore.data.targetScroll, "string");
-        }
+        if (scrollStore.data.targetScroll === "none") return;
 
         if (scrollStore.data.targetScroll.includes("Armor")) {
           chat.in.updateArmor();
@@ -109,10 +81,6 @@ export const useChatStore = defineStore("chat", () => {
         }
       },
       updateChatState: () => {
-        {
-          unitTest(algorithmStore.data.dice.state, "number");
-        }
-
         if (algorithmStore.data.dice.state === -1) {
           chat.in.updateForNope();
         } else if (algorithmStore.data.dice.state === 0) {

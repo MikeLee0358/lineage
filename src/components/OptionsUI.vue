@@ -12,7 +12,6 @@
 <script setup>
 import { useHelperStore } from "../stores/helper";
 import { useAudioStore } from "../stores/music";
-import { unitTest } from "../utils/UnitTest";
 
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
@@ -20,18 +19,10 @@ const audioStore = useAudioStore();
 const OptionsUI = {
   in: {
     handleClose: () => {
-      {
-        unitTest(helperStore.data.btnState, "string");
-      }
-
       audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
       helperStore.data.btnState = "--close";
     },
     toggleAudio: () => {
-      {
-        unitTest(audioStore.data.isOn, "boolean");
-      }
-
       audioStore.data.isOn = !audioStore.data.isOn;
 
       audioStore.data.isOn === true

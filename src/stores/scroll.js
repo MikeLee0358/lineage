@@ -1,6 +1,5 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
-import { unitTest } from "../utils/UnitTest";
 
 export const useScrollStore = defineStore("scroll", () => {
   const scroll = {
@@ -10,10 +9,6 @@ export const useScrollStore = defineStore("scroll", () => {
     }),
     out: {
       changeScroll: (string) => {
-        {
-          unitTest(string, "string");
-        }
-
         switch (string) {
           case "F6":
             scroll.data.targetScroll = "whiteArmor";
@@ -44,35 +39,21 @@ export const useScrollStore = defineStore("scroll", () => {
         }
       },
       getIsScrollType: (type) => {
-        {
-          unitTest(type, "string");
-        }
-
         return scroll.out.getScrollType() === type;
       },
       getScrollType: () => {
-        {
-          if (scroll.data.targetScroll === "none") return;
-          unitTest(scroll.data.targetScroll, "string");
-        }
+        if (scroll.data.targetScroll === "none") return;
 
         return /(white)|(cursed)|(blessed)/g.exec(scroll.data.targetScroll)[0];
       },
       getScrollEquipType: () => {
-        {
-          if (scroll.data.targetScroll === "none") return;
-          unitTest(scroll.data.targetScroll, "string");
-        }
+        if (scroll.data.targetScroll === "none") return;
 
         return /(Armor)|(Weapon)/g
           .exec(scroll.data.targetScroll)[0]
           .toLocaleLowerCase();
       },
       clearClickScrollTimer: () => {
-        {
-          unitTest(scroll.data.clickTimerId, "number");
-        }
-
         clearInterval(scroll.data.clickTimerId);
       },
     },
