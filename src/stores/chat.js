@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { reactive } from "vue";
 import { useScrollStore } from "./scroll";
 import { useAlgorithmStore } from "./algorithm";
+import { ESTest } from "escss-estest";
 
 export const useChatStore = defineStore("chat", () => {
   const scrollStore = useScrollStore();
@@ -14,10 +15,18 @@ export const useChatStore = defineStore("chat", () => {
     in: {
       reuse: {
         pushAndShiftArray: (text) => {
+          {
+            ESTest(text, 'string')
+          }
+
           chat.data.lines.push(text);
           chat.data.lines.shift();
         },
         showNumber: () => {
+          {
+            ESTest(algorithmStore.data.target.value, 'number')
+          }
+
           return algorithmStore.data.target.value < 0
             ? algorithmStore.data.target.value
             : `+${algorithmStore.data.target.value}`;
@@ -39,6 +48,10 @@ export const useChatStore = defineStore("chat", () => {
         chat.in.reuse.pushAndShiftArray("請選擇一種武器。");
       },
       updateForOne: () => {
+        {
+          ESTest(algorithmStore.data.target.name, 'string')
+        }
+        
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -60,6 +73,10 @@ export const useChatStore = defineStore("chat", () => {
         );
       },
       updateForTwoUp: () => {
+        {
+          ESTest(algorithmStore.data.target.name, 'string')
+        }
+
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -68,10 +85,11 @@ export const useChatStore = defineStore("chat", () => {
       },
     },
     out: {
-      cleanChat: () => {
-        chat.data.lines = Array(7);
-      },
       updateChatScroll: () => {
+        {
+          ESTest(scrollStore.data.targetScroll, 'string')
+        }
+
         if (scrollStore.data.targetScroll === "none") return;
 
         if (scrollStore.data.targetScroll.includes("Armor")) {
@@ -81,6 +99,10 @@ export const useChatStore = defineStore("chat", () => {
         }
       },
       updateChatState: () => {
+        {
+          ESTest(algorithmStore.data.dice.state, 'number')
+        }
+        
         if (algorithmStore.data.dice.state === -1) {
           chat.in.updateForNope();
         } else if (algorithmStore.data.dice.state === 0) {

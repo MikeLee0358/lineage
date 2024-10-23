@@ -4,6 +4,7 @@ import { useChatStore } from "./chat";
 import { useRoleStore } from "./role";
 import { useScrollStore } from "./scroll";
 import { useKnightStore } from "./knight";
+import { ESTest } from "escss-estest";
 
 export const useAlgorithmStore = defineStore("algorithm", () => {
   const roleStore = useRoleStore();
@@ -20,7 +21,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         successValue: 0,
       },
       target: {
-        name: 0,
+        name: "",
         category: "",
         value: 0,
         safetyValue: 0,
@@ -29,11 +30,20 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
     in: {
       reuse: {
         getRandomStateOneTo: (value) => {
+          {
+            ESTest(algorithm.data.dice.state + value, 'number')
+          }
+
           algorithm.data.dice.state = Number(
             Math.floor(Math.random() * value) + 1,
           );
         },
         resetAtTheEnd: () => {
+          {
+            ESTest(algorithm.data.dice.state, 'number')
+            ESTest(scrollStore.data.targetScroll, 'string')
+          }
+
           algorithm.data.dice.state = 0;
           scrollStore.data.targetScroll = "none";
         },
@@ -43,6 +53,11 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           algorithm.in.reuse.resetAtTheEnd();
         },
         handleUpdateOver9: () => {
+          {
+            ESTest(algorithm.data.target.value, 'number')
+            ESTest(algorithm.data.dice.state, 'number')
+          }
+
           //white: 33% +1 66%: nothing happened message
           //cursed: 50% +1 50%: nothing happened message
           //blessed: 66% +1 33%: nothing happened message
@@ -88,9 +103,21 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         },
       },
       getDiceValue: () => {
+        {
+          ESTest(algorithm.data.dice.value, 'number')
+        }
+
         algorithm.data.dice.value = Number((Math.random() * 100).toFixed(2));
       },
       handleFailure: (equip, event) => {
+        {
+          ESTest(equip, 'object')
+          ESTest(event, 'object')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.dice.state, 'number')
+          ESTest(algorithm.data.target.value, 'number')
+        }
+
         if (Math.abs(algorithm.data.target.value) === 9) {
           knightStore.out.getGameChatEvent("weaponFailure");
         }
@@ -127,6 +154,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       updateEquipValue: () => {
+        {
+          ESTest(algorithm.data.target.value + algorithm.data.dice.state, 'number')
+        }
+
         if (scrollStore.out.getIsScrollType("cursed")) {
           algorithm.data.target.value--;
         } else {
@@ -134,12 +165,21 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       getTargetCategoryEquipType: () => {
+        {
+          ESTest(algorithm.data.target.category, 'string')
+        }
+
         return algorithm.data.target.category
           .substring(0, 6)
           .toLowerCase()
           .trim();
       },
       getDiceSuccessValue: () => {
+        {
+          ESTest(algorithm.data.dice.successValue, 'number')
+          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
+        }
+
         if (getIsSpecialCases()) {
           algorithm.data.dice.successValue = 100;
         } else if (algorithm.out.getIsCategoryType("weapon")) {
@@ -165,6 +205,11 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       getArmorSuccessValue: () => {
+        {
+          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
+          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.bonus, 'number')
+        }
+
         /* Armor Formula */
         //|underSafetyValue|:100%
         //|0~8|:1/n * 100% (if(n<4) 25%)
@@ -186,6 +231,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       getWeaponSuccessValue: () => {
+        {
+          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
+          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.bonus, 'number')
+        }
         /* Weapon Formula */
         //|underSafetyValue|:100%
         //|0~8|:33.33%
@@ -203,6 +252,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         }
       },
       getIsSuccess: () => {
+        {
+          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.value, 'number')
+        }
+
         algorithm.in.getDiceValue();
         algorithm.in.getDiceSuccessValue();
 
@@ -217,17 +270,35 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
     },
     out: {
       updateData: (equip) => {
+        {
+          ESTest(algorithm.data.target.name + equip.name, 'string')
+          ESTest(algorithm.data.target.value + equip.value, 'number')
+          ESTest(algorithm.data.target.category + equip.category, 'string')
+          ESTest(algorithm.data.target.safetyValue + equip.safetyValue, 'number')
+        }
+
         algorithm.data.target.name = equip.name;
         algorithm.data.target.value = equip.value;
         algorithm.data.target.category = equip.category;
         algorithm.data.target.safetyValue = equip.safetyValue;
       },
       getIsCategoryType: (text) => {
+        {
+          ESTest(algorithm.data.target.category, 'string')
+        }
+
         return algorithm.data.target.category
           .toLowerCase()
           .includes(text.toLowerCase());
       },
       doAlgorithm: (equip, event) => {
+        {
+          ESTest(equip, 'object')
+          ESTest(event, 'object')
+          ESTest(knightStore.data.isStopFunction, 'boolean')
+          ESTest(algorithm.data.target.value, 'number')
+        }
+
         if (knightStore.data.isStopFunction) return;
         if (!algorithm.in.getIsMatchedScrollEquipType()) return;
 

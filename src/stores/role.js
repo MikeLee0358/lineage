@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { reactive, computed } from "vue";
 import { useKnightStore } from "./knight";
 import data from "@/data/dataRole.json";
+import { ESTest } from "escss-estest";
 
 export const useRoleStore = defineStore("role", () => {
   const knightStore = useKnightStore();
@@ -13,6 +14,10 @@ export const useRoleStore = defineStore("role", () => {
     }),
     in: {
       getTotalEquipsAC: () => {
+        {
+          ESTest(role.out.currentData().equips, 'array')
+        }
+
         const roleEquips = role.out.currentData().equips;
         let totalEquipsAC = 0;
 
@@ -32,9 +37,18 @@ export const useRoleStore = defineStore("role", () => {
     },
     out: {
       currentData: () => {
+        {
+          ESTest(role.data.data[role.data.currentRole], 'object')
+        }
+
         return role.data.data[role.data.currentRole];
       },
       getAC: () => {
+        {
+          ESTest(role.out.currentData().basic.ac, 'number')
+          ESTest(role.in.getTotalEquipsAC(), 'number')
+        }
+
         const roleAC = role.out.currentData().basic.ac;
         const totalEquipsAC = role.in.getTotalEquipsAC();
 
@@ -48,6 +62,11 @@ export const useRoleStore = defineStore("role", () => {
         return roleAC - totalEquipsAC;
       },
       calcEquipAttribute: (string, equip) => {
+        {
+          ESTest(string, 'string')
+          ESTest(equip, 'object')
+        }
+
         const equipToAttr = {
           力量手套: "str",
         };
@@ -66,6 +85,10 @@ export const useRoleStore = defineStore("role", () => {
         }
       },
       getUrlForHashWhenProd: (name) => {
+        {
+          ESTest(name, 'string')
+        }
+
         return new URL(`/src/assets/${name}`, import.meta.url).href;
       },
     },

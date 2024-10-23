@@ -2,6 +2,7 @@ import { reactive } from "vue";
 import { defineStore } from "pinia";
 import { useChatStore } from "./chat";
 import { useAlgorithmStore } from "./algorithm";
+import { ESTest } from "escss-estest";
 
 export const useKnightStore = defineStore("knight", () => {
   const chatStore = useChatStore();
@@ -16,6 +17,13 @@ export const useKnightStore = defineStore("knight", () => {
     }),
     in: {
       GameChatTime: (second) => {
+        {
+          ESTest(second, 'number')
+          ESTest(knight.data.isShowGameChat, 'boolean')
+          ESTest(knight.data.isStopFunction, 'boolean')
+          ESTest(algorithmStore.data.dice.bonus, 'number')
+        }
+
         setTimeout(function () {
           knight.data.isShowGameChat = false;
           knight.data.isStopFunction = false;
@@ -23,6 +31,11 @@ export const useKnightStore = defineStore("knight", () => {
         }, second * 1000);
       },
       getArrayFull: (array, string) => {
+        {
+          ESTest(array, 'array')
+          ESTest(string, 'string')
+        }
+
         let result = [];
         for (let i = 0; i < array.length; i++) {
           result.push(string);
@@ -32,6 +45,14 @@ export const useKnightStore = defineStore("knight", () => {
     },
     out: {
       getGameChatEvent: (chatEvent) => {
+        {
+          ESTest(chatEvent, 'string')
+          ESTest(knight.data.chatMsg, 'string')
+          ESTest(algorithmStore.data.dice.bonus, 'number')
+          ESTest(chatStore.data.lines, 'array')
+          ESTest(knight.data.isShowGameChat, 'boolean')
+        }
+
         switch (chatEvent) {
           case "weaponSuccess":
             knight.data.chatMsg = "果然是天選之人... 佩服佩服";
@@ -113,6 +134,10 @@ export const useKnightStore = defineStore("knight", () => {
         knight.in.GameChatTime(10);
       },
       repeatTalkChatEvent: (second) => {
+        {
+          ESTest(second, 'number')
+        }
+
         setInterval(function () {
           const randomNum = Math.floor(Math.random() * 10);
 

@@ -1,5 +1,6 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
+import { ESTest } from "escss-estest";
 
 export const useScrollStore = defineStore("scroll", () => {
   const scroll = {
@@ -9,6 +10,11 @@ export const useScrollStore = defineStore("scroll", () => {
     }),
     out: {
       changeScroll: (string) => {
+        {
+          ESTest(string, 'string')
+          ESTest(scroll.data.targetScroll, 'string')
+        }
+
         switch (string) {
           case "F6":
             scroll.data.targetScroll = "whiteArmor";
@@ -39,14 +45,24 @@ export const useScrollStore = defineStore("scroll", () => {
         }
       },
       getIsScrollType: (type) => {
+        {
+          ESTest(scroll.out.getScrollType() + type, 'string')
+        }
         return scroll.out.getScrollType() === type;
       },
       getScrollType: () => {
+        {
+          ESTest(scroll.data.targetScroll, 'string')
+        }
         if (scroll.data.targetScroll === "none") return;
 
         return /(white)|(cursed)|(blessed)/g.exec(scroll.data.targetScroll)[0];
       },
       getScrollEquipType: () => {
+        {
+          ESTest(scroll.data.targetScroll, 'string')
+        }
+
         if (scroll.data.targetScroll === "none") return;
 
         return /(Armor)|(Weapon)/g
@@ -54,6 +70,9 @@ export const useScrollStore = defineStore("scroll", () => {
           .toLocaleLowerCase();
       },
       clearClickScrollTimer: () => {
+        {
+          ESTest(scroll.data.clickTimerId, 'number')
+        }
         clearInterval(scroll.data.clickTimerId);
       },
     },
