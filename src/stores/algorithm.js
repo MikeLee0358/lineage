@@ -31,7 +31,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       reuse: {
         getRandomStateOneTo: (value) => {
           {
-            ESTest(algorithm.data.dice.state + value, 'number')
+            ESTest(value, 'number')
+            ESTest(algorithm.data.dice.state, 'number')
           }
 
           algorithm.data.dice.state = Number(
@@ -155,7 +156,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       updateEquipValue: () => {
         {
-          ESTest(algorithm.data.target.value + algorithm.data.dice.state, 'number')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.dice.state, 'number')
         }
 
         if (scrollStore.out.getIsScrollType("cursed")) {
@@ -177,7 +179,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       getDiceSuccessValue: () => {
         {
           ESTest(algorithm.data.dice.successValue, 'number')
-          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.target.safetyValue, 'number')
         }
 
         if (getIsSpecialCases()) {
@@ -206,8 +209,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       getArmorSuccessValue: () => {
         {
-          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
-          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.bonus, 'number')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.target.safetyValue, 'number')
+          ESTest(algorithm.data.dice.bonus, 'number')
+          ESTest(algorithm.data.dice.successValue, 'number')
         }
 
         /* Armor Formula */
@@ -232,8 +237,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       getWeaponSuccessValue: () => {
         {
-          ESTest(algorithm.data.target.value + algorithm.data.target.safetyValue, 'number')
-          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.bonus, 'number')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.target.safetyValue, 'number')
+          ESTest(algorithm.data.dice.successValue, 'number')
+          ESTest(algorithm.data.dice.bonus, 'number')
         }
         /* Weapon Formula */
         //|underSafetyValue|:100%
@@ -253,7 +260,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       getIsSuccess: () => {
         {
-          ESTest(algorithm.data.dice.successValue + algorithm.data.dice.value, 'number')
+          ESTest(algorithm.data.dice.successValue, 'number')
+          ESTest(algorithm.data.dice.value, 'number')
         }
 
         algorithm.in.getDiceValue();
@@ -271,10 +279,14 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
     out: {
       updateData: (equip) => {
         {
-          ESTest(algorithm.data.target.name + equip.name, 'string')
-          ESTest(algorithm.data.target.value + equip.value, 'number')
-          ESTest(algorithm.data.target.category + equip.category, 'string')
-          ESTest(algorithm.data.target.safetyValue + equip.safetyValue, 'number')
+          ESTest(algorithm.data.target.name, 'string')
+          ESTest(algorithm.data.target.value, 'number')
+          ESTest(algorithm.data.target.category, 'string')
+          ESTest(algorithm.data.target.safetyValue, 'number')
+          ESTest(equip.name, 'string')
+          ESTest(equip.value, 'number')
+          ESTest(equip.category, 'string')
+          ESTest(equip.safetyValue, 'number')
         }
 
         algorithm.data.target.name = equip.name;
