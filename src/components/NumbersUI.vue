@@ -1,12 +1,12 @@
 <template>
   <ul id="🔥NumbersUI">
-    <li id="🔥NumbersUI__Line1">
-      <div id="🔥NumbersUI__Line1__Lv">1</div>
-      <div id="🔥NumbersUI__Line1__Exp">0.00%</div>
+    <li id="🔥NumbersUI__X1">
+      <div id="🔥NumbersUI__X1__Lv">1</div>
+      <div id="🔥NumbersUI__X1__Exp">0.00%</div>
     </li>
-    <li id="🔥NumbersUI__Line2">
-      <div id="🔥NumbersUI__Line2__Ac">{{ roleStore.out.getAC() }}</div>
-      <div id="🔥NumbersUI__Line2__State">0</div>
+    <li id="🔥NumbersUI__X2">
+      <div id="🔥NumbersUI__X2__Ac">{{ roleStore.out.getAC() }}</div>
+      <div id="🔥NumbersUI__X2__State">0</div>
     </li>
   </ul>
 </template>
@@ -35,35 +35,35 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🔥NumbersUI__Line1 {
+  #🔥NumbersUI__X1 {
     flex: 1;
     display: flex;
     align-items: center;
     gap: 10vw;
     padding-left: 12%;
 
-    #🔥NumbersUI__Line1__Lv {
+    #🔥NumbersUI__X1__Lv {
       flex-basis: 9%;
       display: flex;
       justify-content: end;
     }
 
-    #🔥NumbersUI__Line1__Exp {
+    #🔥NumbersUI__X1__Exp {
       flex: 1;
     }
   }
 
-  #🔥NumbersUI__Line2 {
+  #🔥NumbersUI__X2 {
     flex: 1;
     display: flex;
     gap: 6vw;
     align-items: center;
 
-    #🔥NumbersUI__Line2__Ac {
+    #🔥NumbersUI__X2__Ac {
       flex-basis: 31%;
     }
 
-    #🔥NumbersUI__Line2__State {
+    #🔥NumbersUI__X2__State {
       flex: 1;
     }
   }
