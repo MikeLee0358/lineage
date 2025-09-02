@@ -1,10 +1,10 @@
 <template>
-  <article id="⭐SinglePlayer">
-    <section id="⭐SinglePlayer__Knight">
+  <article id="📃SinglePlayer">
+    <section id="📃SinglePlayer__Knight">
       <KnightUI />
     </section>
 
-    <section id="⭐SinglePlayer__PanelUI">
+    <section id="📃SinglePlayer__PanelUI">
       <HealthUI />
       <ChatUI />
       <ItemsUI />
@@ -33,7 +33,7 @@ const audioStore = useAudioStore();
 </script>
 
 <style lang="scss">
-#⭐SinglePlayer {
+#📃SinglePlayer {
   background: black;
   color: #e5e7eb;
   height: 100vh;
@@ -64,12 +64,12 @@ const audioStore = useAudioStore();
   }
 }
 
-#⭐SinglePlayer__Knight {
+#📃SinglePlayer__Knight {
   position: relative;
   height: 73%;
 }
 
-#⭐SinglePlayer__PanelUI {
+#📃SinglePlayer__PanelUI {
   display: grid;
   grid-template-columns: 17.5% 1fr 23%;
   grid-template-rows: 20% 64% 16%;

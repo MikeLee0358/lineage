@@ -1,5 +1,5 @@
 <template>
-  <section id="⭐LogoutPage">
+  <section id="📃LogoutPage">
     <video
       :src="roleStore.out.getUrlForHashWhenProd('logout/classic.mp4')"
       autoplay
@@ -14,7 +14,7 @@ const roleStore = useRoleStore();
 </script>
 
 <style lang="scss">
-#⭐LogoutPage {
+#📃LogoutPage {
   display: flex;
   justify-content: center;
   width: 100vw;
