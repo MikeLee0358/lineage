@@ -18,10 +18,10 @@ export const useKnightStore = defineStore("knight", () => {
     in: {
       GameChatTime: (second) => {
         {
-          ESTest(second, 'number')
-          ESTest(knight.data.isShowGameChat, 'boolean')
-          ESTest(knight.data.isStopFunction, 'boolean')
-          ESTest(algorithmStore.data.dice.bonus, 'number')
+          ESTest(second, "number");
+          ESTest(knight.data.isShowGameChat, "boolean");
+          ESTest(knight.data.isStopFunction, "boolean");
+          ESTest(algorithmStore.data.dice.bonus, "number");
         }
 
         setTimeout(function () {
@@ -32,8 +32,8 @@ export const useKnightStore = defineStore("knight", () => {
       },
       getArrayFull: (array, string) => {
         {
-          ESTest(array, 'array')
-          ESTest(string, 'string')
+          ESTest(array, "array");
+          ESTest(string, "string");
         }
 
         let result = [];
@@ -46,11 +46,11 @@ export const useKnightStore = defineStore("knight", () => {
     out: {
       getGameChatEvent: (chatEvent) => {
         {
-          ESTest(chatEvent, 'string')
-          ESTest(knight.data.chatMsg, 'string')
-          ESTest(algorithmStore.data.dice.bonus, 'number')
-          ESTest(chatStore.data.lines, 'array')
-          ESTest(knight.data.isShowGameChat, 'boolean')
+          ESTest(chatEvent, "string");
+          ESTest(knight.data.chatMsg, "string");
+          ESTest(algorithmStore.data.dice.bonus, "number");
+          ESTest(chatStore.data.lines, "array");
+          ESTest(knight.data.isShowGameChat, "boolean");
         }
 
         switch (chatEvent) {
@@ -101,6 +101,7 @@ export const useKnightStore = defineStore("knight", () => {
           case "talk5":
             knight.data.chatMsg = "用祝福的衝10只有66%成功率";
             break;
+
           case "talk6":
             knight.data.chatMsg = "用紅的衝10只有50%成功率";
             break;
@@ -135,7 +136,7 @@ export const useKnightStore = defineStore("knight", () => {
       },
       repeatTalkChatEvent: (second) => {
         {
-          ESTest(second, 'number')
+          ESTest(second, "number");
         }
 
         setInterval(function () {

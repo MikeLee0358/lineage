@@ -1,5 +1,5 @@
 <template>
-  <figure id="🔥SystemUI" @click.stop="SystemUI.out.handleClick">
+  <figure id="🔥SystemUI" @click.stop="handleClick">
     <li id="🔥SystemUI__Close" class="--close" />
     <RouterLink id="🔥SystemUI__Restart" class="--restart" to="/" />
     <RouterLink id="🔥SystemUI__Quit" class="--quit" to="/logout" />
@@ -15,17 +15,13 @@ import { useAudioStore } from "../stores/music";
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
 
-const SystemUI = {
-  out: {
-    handleClick: (e) => {
-      if (["--cancel", "--close"].includes(e.target.className)) {
-        helperStore.data.btnState = "--close";
-      }
+function handleClick(e) {
+  if (["--cancel", "--close"].includes(e.target.className)) {
+    helperStore.data.btnState = "--close";
+  }
 
-      audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
-    },
-  },
-};
+  audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
+}
 </script>
 
 <style lang="scss">

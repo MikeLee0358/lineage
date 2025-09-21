@@ -1,5 +1,15 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  page.on('console', msg => {
+    if (msg.type() === 'error') {
+      console.log(`Console error detected: ${msg.text()}`);
+
+      throw new Error(`Console error detected: ${msg.text()}`);
+    }
+  });
+});
+
 test.describe('mouse scroll testing', () => {
   test('F5 stop function test', async ({ page }) => {
     await page.goto('http://localhost:5173/#/');
@@ -44,7 +54,6 @@ test.describe('mouse scroll testing', () => {
     await page.locator('[id="🔥StatusEquips__Equip"]').first().click();
     await expect(page.locator('id=📃SinglePlayer__PanelUI')).toContainText('+0 瑟魯基之劍 一瞬間發出 藍色的 光芒。');
   });
-
 
   test('weapon to -1', async ({ page }) => {
     await page.goto('http://localhost:5173/');
@@ -155,3 +164,4 @@ test.describe('function feature testing', () => {
     await expect(page).toHaveURL(/logout/)
   });
 })
+
