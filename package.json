@@ -8,8 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "e2e": "playwright test",
-    "format": "prettier src --write --cache",
-    "lint": "eslint src/**/*.{vue,js} --cache"
+    "check": "prettier src --write --cache & eslint src/**/*.{vue,js} --cache"
   },
   "dependencies": {
     "escss-estest": "^2.5.2",

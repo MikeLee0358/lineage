@@ -13,7 +13,7 @@ export const useAudioStore = defineStore("music", () => {
     out: {
       clickToPlayAudio: (url) => {
         {
-          ESTest(url, 'string')
+          ESTest(url, "string");
         }
 
         const audio = new Audio(music.out.getUrlForHashWhenProd(url));
@@ -21,7 +21,7 @@ export const useAudioStore = defineStore("music", () => {
       },
       playAudio: () => {
         {
-          ESTest(music.data.isOn, 'boolean')
+          ESTest(music.data.isOn, "boolean");
         }
 
         const audio = document.querySelector("audio");
@@ -31,7 +31,7 @@ export const useAudioStore = defineStore("music", () => {
       },
       pauseAudio: () => {
         {
-          ESTest(music.data.isOn, 'boolean')
+          ESTest(music.data.isOn, "boolean");
         }
 
         const audio = document.querySelector("audio");
@@ -41,7 +41,7 @@ export const useAudioStore = defineStore("music", () => {
       },
       getRoleAudioUrl: () => {
         {
-          ESTest(knightStore.data.isDeathKnight, 'boolean')
+          ESTest(knightStore.data.isDeathKnight, "boolean");
         }
 
         if (knightStore.data.isDeathKnight) {
@@ -54,16 +54,16 @@ export const useAudioStore = defineStore("music", () => {
       },
       getUrlForHashWhenProd: (name) => {
         {
-          ESTest(name, 'string')
+          ESTest(name, "string");
         }
 
         return new URL(`/src/assets/${name}`, import.meta.url).href;
       },
       showOnOff: () => {
         {
-          ESTest(music.data.isOn, 'boolean')
+          ESTest(music.data.isOn, "boolean");
         }
-        
+
         return music.data.isOn ? "開" : "關";
       },
     },

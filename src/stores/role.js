@@ -15,7 +15,7 @@ export const useRoleStore = defineStore("role", () => {
     in: {
       getTotalEquipsAC: () => {
         {
-          ESTest(role.out.currentData().equips, 'array')
+          ESTest(role.out.currentData().equips, "array");
         }
 
         const roleEquips = role.out.currentData().equips;
@@ -38,15 +38,15 @@ export const useRoleStore = defineStore("role", () => {
     out: {
       currentData: () => {
         {
-          ESTest(role.data.data[role.data.currentRole], 'object')
+          ESTest(role.data.data[role.data.currentRole], "object");
         }
 
         return role.data.data[role.data.currentRole];
       },
       getAC: () => {
         {
-          ESTest(role.out.currentData().basic.ac, 'number')
-          ESTest(role.in.getTotalEquipsAC(), 'number')
+          ESTest(role.out.currentData().basic.ac, "number");
+          ESTest(role.in.getTotalEquipsAC(), "number");
         }
 
         const roleAC = role.out.currentData().basic.ac;
@@ -63,8 +63,8 @@ export const useRoleStore = defineStore("role", () => {
       },
       calcEquipAttribute: (string, equip) => {
         {
-          ESTest(string, 'string')
-          ESTest(equip, 'object')
+          ESTest(string, "string");
+          ESTest(equip, "object");
         }
 
         const equipToAttr = {
@@ -86,7 +86,7 @@ export const useRoleStore = defineStore("role", () => {
       },
       getUrlForHashWhenProd: (name) => {
         {
-          ESTest(name, 'string')
+          ESTest(name, "string");
         }
 
         return new URL(`/src/assets/${name}`, import.meta.url).href;

@@ -1,5 +1,5 @@
 <template>
-  <ul id="🔥FunctionUI" @click.stop="FunctionUI.out.handleClick">
+  <ul id="🔥FunctionUI" @click.stop="handleClick">
     <li class="--btnHelp">
       <HelpUI v-show="helperStore.data.btnState === '--btnHelp'" />
     </li>
@@ -31,17 +31,13 @@ import { useHelperStore } from "../stores/helper";
 const audioStore = useAudioStore();
 const helperStore = useHelperStore();
 
-const FunctionUI = {
-  out: {
-    handleClick: (e) => {
-      if (e.target.tagName === "UL") return;
+function handleClick(e) {
+  if (e.target.tagName === "UL") return;
 
-      audioStore.out.clickToPlayAudio("UI/audio_itemsOpen.mp3");
-      helperStore.data.btnState = e.target.className;
-      helperStore.data.isDefault = false;
-    },
-  },
-};
+  audioStore.out.clickToPlayAudio("UI/audio_itemsOpen.mp3");
+  helperStore.data.btnState = e.target.className;
+  helperStore.data.isDefault = false;
+}
 </script>
 
 <style lang="scss">

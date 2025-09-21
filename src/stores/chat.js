@@ -16,7 +16,7 @@ export const useChatStore = defineStore("chat", () => {
       reuse: {
         pushAndShiftArray: (text) => {
           {
-            ESTest(text, 'string')
+            ESTest(text, "string");
           }
 
           chat.data.lines.push(text);
@@ -24,7 +24,7 @@ export const useChatStore = defineStore("chat", () => {
         },
         showNumber: () => {
           {
-            ESTest(algorithmStore.data.target.value, 'number')
+            ESTest(algorithmStore.data.target.value, "number");
           }
 
           return algorithmStore.data.target.value < 0
@@ -49,9 +49,9 @@ export const useChatStore = defineStore("chat", () => {
       },
       updateForOne: () => {
         {
-          ESTest(algorithmStore.data.target.name, 'string')
+          ESTest(algorithmStore.data.target.name, "string");
         }
-        
+
         chat.in.reuse.pushAndShiftArray(
           `${chat.in.reuse.showNumber()} ${
             algorithmStore.data.target.name
@@ -74,7 +74,7 @@ export const useChatStore = defineStore("chat", () => {
       },
       updateForTwoUp: () => {
         {
-          ESTest(algorithmStore.data.target.name, 'string')
+          ESTest(algorithmStore.data.target.name, "string");
         }
 
         chat.in.reuse.pushAndShiftArray(
@@ -87,7 +87,7 @@ export const useChatStore = defineStore("chat", () => {
     out: {
       updateChatScroll: () => {
         {
-          ESTest(scrollStore.data.targetScroll, 'string')
+          ESTest(scrollStore.data.targetScroll, "string");
         }
 
         if (scrollStore.data.targetScroll === "none") return;
@@ -100,9 +100,9 @@ export const useChatStore = defineStore("chat", () => {
       },
       updateChatState: () => {
         {
-          ESTest(algorithmStore.data.dice.state, 'number')
+          ESTest(algorithmStore.data.dice.state, "number");
         }
-        
+
         if (algorithmStore.data.dice.state === -1) {
           chat.in.updateForNope();
         } else if (algorithmStore.data.dice.state === 0) {

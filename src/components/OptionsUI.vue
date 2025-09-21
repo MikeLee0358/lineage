@@ -1,5 +1,5 @@
 <template>
-  <ul id="🔥OptionsUI" @click.stop="OptionsUI.out.handleClick">
+  <ul id="🔥OptionsUI" @click.stop="handleClick">
     <li id="🔥OptionsUI__Close" class="--close"></li>
     <li id="🔥OptionsUI__Li">選項</li>
     <li id="🔥OptionsUI__Music" class="--music">
@@ -16,27 +16,18 @@ import { useAudioStore } from "../stores/music";
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
 
-const OptionsUI = {
-  in: {
-    handleClose: () => {
-      audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
-      helperStore.data.btnState = "--close";
-    },
-    toggleAudio: () => {
-      audioStore.data.isOn = !audioStore.data.isOn;
+function handleClick(e) {
+  if (e.target.className === "--music") {
+    audioStore.data.isOn = !audioStore.data.isOn;
 
-      audioStore.data.isOn === true
-        ? audioStore.out.playAudio()
-        : audioStore.out.pauseAudio();
-    },
-  },
-  out: {
-    handleClick: (e) => {
-      if (e.target.className === "--music") OptionsUI.in.toggleAudio();
-      else if (e.target.className === "--close") OptionsUI.in.handleClose();
-    },
-  },
-};
+    audioStore.data.isOn === true
+      ? audioStore.out.playAudio()
+      : audioStore.out.pauseAudio();
+  } else if (e.target.className === "--close") {
+    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
+    helperStore.data.btnState = "--close";
+  }
+}
 </script>
 
 <style lang="scss">

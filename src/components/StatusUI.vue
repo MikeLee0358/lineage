@@ -1,5 +1,5 @@
 <template>
-  <ul id="🔥StatusUI" @click.stop="StatusUI.out.handleClick">
+  <ul id="🔥StatusUI" @click.stop="handleClick">
     <li id="🔥StatusUI__Close" class="--close" />
     <StatusNumbers />
     <StatusEquips />
@@ -15,22 +15,13 @@ import { useAudioStore } from "../stores/music";
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
 
-const StatusUI = {
-  in: {
-    handleClose: () => {
-      audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
-      helperStore.data.btnState = "--close";
-      helperStore.data.isDefault = false;
-    },
-  },
-  out: {
-    handleClick: (e) => {
-      if (e.target.className === "--close") {
-        StatusUI.in.handleClose();
-      }
-    },
-  },
-};
+function handleClick(e) {
+  if (e.target.className === "--close") {
+    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
+    helperStore.data.btnState = "--close";
+    helperStore.data.isDefault = false;
+  }
+}
 </script>
 
 <style lang="scss">

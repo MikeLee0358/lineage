@@ -1,5 +1,5 @@
 <template>
-  <ul id="🔥HelpUI" @click.stop="HelpUI.out.handleClick">
+  <ul id="🔥HelpUI" @click.stop="handleClick">
     <li id="🔥HelpUI__Close" class="--close"></li>
     <li id="🔥HelpUI__TextBox">
       <h1 id="🔥HelpUI__TextBox__Title">Side project由來</h1>
@@ -21,21 +21,12 @@ import { useHelperStore } from "../stores/helper";
 const helperStore = useHelperStore();
 const audioStore = useAudioStore();
 
-const HelpUI = {
-  in: {
-    handleClose: () => {
-      audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
-      helperStore.data.btnState = "--close";
-    },
-  },
-  out: {
-    handleClick: (e) => {
-      if (e.target.className === "--close") {
-        HelpUI.in.handleClose();
-      }
-    },
-  },
-};
+function handleClick(e) {
+  if (e.target.className === "--close") {
+    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
+    helperStore.data.btnState = "--close";
+  }
+}
 </script>
 
 <style lang="scss">
