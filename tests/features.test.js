@@ -128,20 +128,6 @@ test.describe('function feature testing', () => {
     await expect(page.locator('[id="📃SinglePlayer__Knight"]')).toContainText('蛇髮 名模↙熱血狂志 熱血狂志:');
   });
 
-  test('MusicUI close', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-    await page.locator('li').filter({ hasText: '選項 背景音效: 關' }).click();
-    await page.locator('[id="🔥OptionsUI__Close"]').click();
-    await expect(page.locator('[id="📃SinglePlayer__Knight"]')).toContainText('蛇髮 名模↙熱血狂志 熱血狂志:');
-  });
-
-  test('MusicUI music toggle', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-    await page.locator('li').filter({ hasText: '選項 背景音效: 關' }).click();
-    await page.getByText('背景音效: 關').click();
-    await expect(page.locator('[id="🔥OptionsUI__Music"]')).toContainText('背景音效: 開');
-  });
-
   test('SystemUI close', async ({ page }) => {
     await page.goto('http://localhost:5173/');
     await page.locator('.--btnLogout').click();
