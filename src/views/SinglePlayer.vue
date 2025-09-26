@@ -29,11 +29,11 @@ import FunctionUI from "../components/FunctionUI.vue";
   color: #e5e7eb;
   height: 100vh;
   width: 100vw;
-  background-image: url("@/assets/knight/knight_background.webp");
+  background-image: url("/knight/knight_background.webp");
 
   background-size: cover;
   background-repeat: round;
-  cursor: url("@/assets/UI/UI_pointer.webp"), auto;
+  cursor: url("/UI/UI_pointer.webp"), auto;
 
   @media (orientation: portrait) {
     & {

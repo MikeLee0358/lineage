@@ -84,12 +84,12 @@ export const useRoleStore = defineStore("role", () => {
           else if (string === "minusAttribute") minusAttr.value;
         }
       },
-      getUrlForHashWhenProd: (name) => {
+      getUrl: (name) => {
         {
           ESTest(name, "string");
         }
 
-        return new URL(`/src/assets/${name}`, import.meta.url).href;
+        return `/${name}`;
       },
     },
   };

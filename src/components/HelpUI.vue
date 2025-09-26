@@ -32,7 +32,7 @@ function handleClick(e) {
   inset: -2216% 1252.3% 704.8% -2394%;
   display: flex;
   align-items: center;
-  background-image: url("@/assets/UI/UI_template.webp");
+  background-image: url("/UI/UI_template.webp");
   background-size: cover;
   background-repeat: round;
 
@@ -40,7 +40,7 @@ function handleClick(e) {
     position: absolute;
     inset: 1.35% 2.75% 94.75% 88%;
 
-    background-image: url("@/assets/UI/UI_close.webp");
+    background-image: url("/UI/UI_close.webp");
     background-size: cover;
     background-repeat: round;
     opacity: 0;

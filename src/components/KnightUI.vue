@@ -22,7 +22,7 @@ knightStore.out.repeatTalkChatEvent(15);
 <style lang="scss">
 .--knight {
   position: relative;
-  background-image: url("../assets/knight/knight.gif");
+  background-image: url("/knight/knight.gif");
   background-size: cover;
   background-repeat: round;
   top: 48%;
@@ -73,7 +73,7 @@ knightStore.out.repeatTalkChatEvent(15);
 
 .--deathKnight {
   position: relative;
-  background-image: url("@/assets/knight/knight_deathKnight.gif");
+  background-image: url("/knight/knight_deathKnight.gif");
   background-size: cover;
   background-repeat: round;
   top: 50%;

@@ -25,7 +25,7 @@ function handleClick(e) {
 #🔥StatusUI {
   position: absolute;
   inset: -2216% 1359.3% 704.8% -2500%;
-  background-image: url("@/assets/UI/UI_role.webp");
+  background-image: url("/UI/UI_role.webp");
   background-size: cover;
   background-repeat: round;
 
@@ -35,7 +35,7 @@ function handleClick(e) {
     z-index: 2;
     opacity: 0;
 
-    background-image: url("@/assets/UI/UI_close.webp");
+    background-image: url("/UI/UI_close.webp");
     background-size: cover;
     background-repeat: round;
   }
