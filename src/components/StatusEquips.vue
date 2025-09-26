@@ -6,7 +6,7 @@
       :key="equip.id"
       :class="equip.category"
       :style="{
-        backgroundImage: `url(${roleStore.out.getUrlForHashWhenProd(equip.src)})`,
+        backgroundImage: `url(${roleStore.out.getUrl(equip.src)})`,
       }"
       @click.stop="getDataForAlgorithm(equip, $event)"
       :data-displayEquipInfo="getEquipInfo(equip)"
@@ -26,9 +26,9 @@ const knightStore = useKnightStore();
 
 function changeCursor() {
   if (scrollStore.data.targetScroll === "none") {
-    return `url(${roleStore.out.getUrlForHashWhenProd("UI/UI_pointer.webp")}), auto`;
+    return `url(${roleStore.out.getUrl("UI/UI_pointer.webp")}), auto`;
   } else {
-    return `url(${roleStore.out.getUrlForHashWhenProd("UI/UI_target.webp")}), auto`;
+    return `url(${roleStore.out.getUrl("UI/UI_target.webp")}), auto`;
   }
 }
 function getEquipInfo(equip) {

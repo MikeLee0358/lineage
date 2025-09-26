@@ -1,7 +1,7 @@
 <template>
   <section id="🔥ItemsUI" @click.stop="handleClick">
     <figure v-for="slot in data.slotList" :key="slot.id" :class="slot.hotkey">
-      <img :src="roleStore.out.getUrlForHashWhenProd(slot.src)" />
+      <img :src="roleStore.out.getUrl(slot.src)" />
       <figcaption class="slotInfo">
         <h1>{{ slot.name }}</h1>
         <p>{{ slot.description }}</p>
@@ -122,7 +122,7 @@ onBeforeRouteLeave(() => {
 
   .active {
     opacity: 1;
-    background-image: url("@/assets/slot/slot_empty.webp");
+    background-image: url("/slot/slot_empty.webp");
     background-size: cover;
     background-repeat: round;
   }
