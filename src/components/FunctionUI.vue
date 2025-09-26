@@ -26,15 +26,12 @@ import StatusUI from "./StatusUI.vue";
 import SystemUI from "./SystemUI.vue";
 import OptionsUI from "./OptionsUI.vue";
 
-import { useAudioStore } from "../stores/music";
 import { useHelperStore } from "../stores/helper";
-const audioStore = useAudioStore();
 const helperStore = useHelperStore();
 
 function handleClick(e) {
   if (e.target.tagName === "UL") return;
 
-  audioStore.out.clickToPlayAudio("UI/audio_itemsOpen.mp3");
   helperStore.data.btnState = e.target.className;
   helperStore.data.isDefault = false;
 }

@@ -10,17 +10,13 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useHelperStore } from "../stores/helper";
-import { useAudioStore } from "../stores/music";
 
 const helperStore = useHelperStore();
-const audioStore = useAudioStore();
 
 function handleClick(e) {
   if (["--cancel", "--close"].includes(e.target.className)) {
     helperStore.data.btnState = "--close";
   }
-
-  audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
 }
 </script>
 
