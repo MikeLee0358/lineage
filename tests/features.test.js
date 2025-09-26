@@ -127,27 +127,5 @@ test.describe('function feature testing', () => {
     await page.locator('[id="🔥HelpUI__Close"]').click();
     await expect(page.locator('[id="📃SinglePlayer__Knight"]')).toContainText('蛇髮 名模↙熱血狂志 熱血狂志:');
   });
-
-  test('SystemUI close', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-    await page.locator('.--btnLogout').click();
-    await page.locator('[id="🔥SystemUI__Close"]').click();
-    await expect(page.locator('[id="📃SinglePlayer__Knight"]')).toContainText('蛇髮 名模↙熱血狂志 熱血狂志:');
-  });
-
-
-  test('SystemUI cancel', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-    await page.locator('.--btnLogout').click();
-    await page.locator('[id="🔥SystemUI__Cancel"]').click();
-    await expect(page.locator('[id="📃SinglePlayer__Knight"]')).toContainText('蛇髮 名模↙熱血狂志 熱血狂志:');
-  });
-
-  test('SystemUI exit', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-    await page.locator('.--btnLogout').click();
-    await page.locator('[id="🔥SystemUI__Quit"]').click();
-    await expect(page).toHaveURL(/logout/)
-  });
 })
 

@@ -10,11 +10,6 @@ const router = createRouter({
       name: "SinglePlayer",
       component: SinglePlayer,
     },
-    {
-      path: "/logout",
-      name: "logout",
-      component: () => import("@/views/LogoutPage.vue"),
-    },
   ],
 });
 
