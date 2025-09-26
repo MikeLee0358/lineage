@@ -16,14 +16,11 @@
 </template>
 
 <script setup>
-import { useAudioStore } from "../stores/music";
 import { useHelperStore } from "../stores/helper";
 const helperStore = useHelperStore();
-const audioStore = useAudioStore();
 
 function handleClick(e) {
   if (e.target.className === "--close") {
-    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
     helperStore.data.btnState = "--close";
   }
 }

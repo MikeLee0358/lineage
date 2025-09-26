@@ -11,12 +11,6 @@
       <NumbersUI />
       <FunctionUI />
     </section>
-
-    <audio
-      autoplay="autoplay"
-      loop="loop"
-      :src="audioStore.out.getRoleAudioUrl()"
-    ></audio>
   </article>
 </template>
 
@@ -27,9 +21,6 @@ import ChatUI from "../components/ChatUI.vue";
 import ItemsUI from "../components/ItemsUI.vue";
 import NumbersUI from "../components/NumbersUI.vue";
 import FunctionUI from "../components/FunctionUI.vue";
-import { useAudioStore } from "../stores/music";
-
-const audioStore = useAudioStore();
 </script>
 
 <style lang="scss">

@@ -19,12 +19,7 @@ const audioStore = useAudioStore();
 function handleClick(e) {
   if (e.target.className === "--music") {
     audioStore.data.isOn = !audioStore.data.isOn;
-
-    audioStore.data.isOn === true
-      ? audioStore.out.playAudio()
-      : audioStore.out.pauseAudio();
   } else if (e.target.className === "--close") {
-    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
     helperStore.data.btnState = "--close";
   }
 }

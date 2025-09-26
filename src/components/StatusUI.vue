@@ -10,14 +10,11 @@
 import StatusNumbers from "../components/StatusNumbers.vue";
 import StatusEquips from "../components/StatusEquips.vue";
 import { useHelperStore } from "../stores/helper";
-import { useAudioStore } from "../stores/music";
 
 const helperStore = useHelperStore();
-const audioStore = useAudioStore();
 
 function handleClick(e) {
   if (e.target.className === "--close") {
-    audioStore.out.clickToPlayAudio("UI/audio_itemsClose.mp3");
     helperStore.data.btnState = "--close";
     helperStore.data.isDefault = false;
   }
