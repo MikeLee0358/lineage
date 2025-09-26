@@ -11,9 +11,6 @@
         "
       />
     </li>
-    <li class="--btnSetting">
-      <OptionsUI v-show="helperStore.data.btnState === '--btnSetting'" />
-    </li>
     <li class="--btnLogout">
       <SystemUI v-show="helperStore.data.btnState === '--btnLogout'" />
     </li>
@@ -24,7 +21,6 @@
 import HelpUI from "./HelpUI.vue";
 import StatusUI from "./StatusUI.vue";
 import SystemUI from "./SystemUI.vue";
-import OptionsUI from "./OptionsUI.vue";
 
 import { useHelperStore } from "../stores/helper";
 const helperStore = useHelperStore();
@@ -51,11 +47,6 @@ function handleClick(e) {
 .--btnRole {
   position: absolute !important;
   inset: 0 71% 0 15% !important;
-}
-
-.--btnSetting {
-  position: absolute !important;
-  inset: 0 14% 0 72% !important;
 }
 
 .--btnLogout {
