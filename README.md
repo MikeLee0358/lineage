@@ -1,23 +1,24 @@
 # 天堂衝裝模擬器
 
-DEMO網址 https://mikelee0358.github.io/LineageEmulator/#/login
+Demo 網址:
+v2: xxx
+v1: https://mikelee0358.github.io/LineageEmulator/#/login
 
 ## 目的 
 
   回憶早期天堂和衝裝備的感覺。
 
 ## 功能
-
-  - 選擇不同角色，有對應的背景音樂。
   - 點擊卷軸可以強化防具、武器。
-  - 角色對話會觸發不同事件。如：強化機率上升、下降等..
+  - 角色對話會觸發不同事件。如：強化機率上升、下降、無效、冷笑話..。
+  - 選擇不同角色，有對應的背景音樂 (v1)。
 
 ## 使用技術
 
   - HTML, CSS, JavaScript。
   - Vue 3, Vue router, Pinia。
   - Sass/SCSS。
-  - E2E(早期 Cypress、Playwright)。
+  - E2E(Cypress/v1、Playwright/v2)。
 
 ## 心得
 
