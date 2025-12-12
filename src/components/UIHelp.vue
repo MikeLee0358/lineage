@@ -1,9 +1,9 @@
 <template>
-  <ul id="🔥HelpUI" @click.stop="handleClick">
-    <li id="🔥HelpUI__Close" class="--close"></li>
-    <li id="🔥HelpUI__TextBox">
-      <h1 id="🔥HelpUI__TextBox__Title">Side project由來</h1>
-      <p id="🔥HelpUI__TextBox__Content">
+  <ul id="🧱UIHelp" @click.stop="handleClick">
+    <li id="🧱UIHelp__Close" class="--close"></li>
+    <li id="🧱UIHelp__TextBox">
+      <h1 id="🧱UIHelp__TextBox__Title">Side project由來</h1>
+      <p id="🧱UIHelp__TextBox__Content">
         {{
           `
         靈感來源為“天堂爆爆樂逼真版”，主要是練習技能和回憶天堂。
@@ -27,7 +27,7 @@ function handleClick(e) {
 </script>
 
 <style lang="scss">
-#🔥HelpUI {
+#🧱UIHelp {
   position: absolute;
   inset: -2216% 1252.3% 704.8% -2394%;
   display: flex;
@@ -36,7 +36,7 @@ function handleClick(e) {
   background-size: cover;
   background-repeat: round;
 
-  #🔥HelpUI__Close {
+  #🧱UIHelp__Close {
     position: absolute;
     inset: 1.35% 2.75% 94.75% 88%;
 
@@ -46,7 +46,7 @@ function handleClick(e) {
     opacity: 0;
   }
 
-  #🔥HelpUI__TextBox {
+  #🧱UIHelp__TextBox {
     position: absolute;
     inset: -30% -13% -29% -25%;
     transform: scale(0.55);
@@ -58,11 +58,11 @@ function handleClick(e) {
       }
     }
 
-    #🔥HelpUI__TextBox__Title {
+    #🧱UIHelp__TextBox__Title {
       text-align: center;
     }
 
-    #🔥HelpUI__TextBox__Content {
+    #🧱UIHelp__TextBox__Content {
       white-space: pre-wrap;
     }
   }

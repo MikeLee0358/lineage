@@ -1,7 +1,7 @@
 <template>
-  <ul id="🔥FunctionUI" @click.stop="handleClick">
+  <ul id="🧱UIFunction" @click.stop="handleClick">
     <li class="--btnHelp">
-      <HelpUI v-show="helperStore.data.btnState === '--btnHelp'" />
+      <UIHelp v-show="helperStore.data.btnState === '--btnHelp'" />
     </li>
     <li class="--btnRole">
       <StatusUI
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import HelpUI from "./HelpUI.vue";
+import UIHelp from "./UIHelp.vue";
 import StatusUI from "./StatusUI.vue";
 
 import { useHelperStore } from "../stores/helper";
@@ -30,9 +30,9 @@ function handleClick(e) {
 </script>
 
 <style lang="scss">
-#🔥FunctionUI {
+#🧱UIFunction {
   position: relative;
-  grid-area: 🔥FunctionUI;
+  grid-area: 🧱UIFunction;
 }
 
 .--btnHelp {

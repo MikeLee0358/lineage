@@ -1,7 +1,7 @@
 <template>
-  <ul id="🔥ChatUI">
+  <ul id="🧱UIChat">
     <li
-      id="🔥ChatUI__Li"
+      id="🧱UIChat__Li"
       v-for="(chatline, index) in chatStore.data.lines"
       :key="index"
     >
@@ -16,8 +16,8 @@ const chatStore = useChatStore();
 </script>
 
 <style lang="scss">
-#🔥ChatUI {
-  grid-area: 🔥ChatUI;
+#🧱UIChat {
+  grid-area: 🧱UIChat;
   position: relative;
   inset: 1% 0 0 0.5%;
 

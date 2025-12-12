@@ -1,47 +1,47 @@
 <template>
-  <ul id="🔥StatusNumbers">
-    <ul id="🔥StatusNumbers__Level">
-      <li id="🔥StatusNumbers__Level__Lv">
+  <ul id="🧱StatusNumbers">
+    <ul id="🧱StatusNumbers__Level">
+      <li id="🧱StatusNumbers__Level__Lv">
         {{ roleStore.out.currentData().basic.lv }}
       </li>
-      <li id="🔥StatusNumbers__Level__Exp">
+      <li id="🧱StatusNumbers__Level__Exp">
         {{ roleStore.out.currentData().basic.exp }}
       </li>
     </ul>
-    <ul id="🔥StatusNumbers__Basic">
-      <li id="🔥StatusNumbers__Basic__Li">
+    <ul id="🧱StatusNumbers__Basic">
+      <li id="🧱StatusNumbers__Basic__Li">
         {{ roleStore.out.currentData().basic.hp }}/{{
           roleStore.out.currentData().basic.hp
         }}
       </li>
-      <li id="🔥StatusNumbers__Basic__Li">
+      <li id="🧱StatusNumbers__Basic__Li">
         {{ roleStore.out.currentData().basic.mp }}/{{
           roleStore.out.currentData().basic.mp
         }}
       </li>
-      <li id="🔥StatusNumbers__Basic__Li">{{ roleStore.out.getAC() }}</li>
+      <li id="🧱StatusNumbers__Basic__Li">{{ roleStore.out.getAC() }}</li>
     </ul>
-    <ul id="🔥StatusNumbers__Attributes">
-      <li id="🔥StatusNumbers__Attributes__Li">
+    <ul id="🧱StatusNumbers__Attributes">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.str }}
       </li>
-      <li id="🔥StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.dex }}
       </li>
-      <li id="🔥StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.con }}
       </li>
-      <li id="🔥StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.int }}
       </li>
-      <li id="🔥StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.wis }}
       </li>
-      <li id="🔥StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__Attributes__Li">
         {{ roleStore.out.currentData().basic.cha }}
       </li>
     </ul>
-    <li id="🔥StatusNumbers__Er">2</li>
+    <li id="🧱StatusNumbers__Er">2</li>
   </ul>
 </template>
 
@@ -52,7 +52,7 @@ const roleStore = useRoleStore();
 </script>
 
 <style lang="scss">
-#🔥StatusNumbers {
+#🧱StatusNumbers {
   position: absolute;
   transform: scale(0.47);
   inset: -56%;
@@ -72,7 +72,7 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🔥StatusNumbers__Level {
+  #🧱StatusNumbers__Level {
     position: absolute;
     inset: 4% 15% 91.5% 30%;
     display: flex;
@@ -81,7 +81,7 @@ const roleStore = useRoleStore();
     gap: 5%;
   }
 
-  #🔥StatusNumbers__Basic {
+  #🧱StatusNumbers__Basic {
     position: absolute;
     inset: 12.2% 46% 73% 30%;
     display: flex;
@@ -94,7 +94,7 @@ const roleStore = useRoleStore();
       }
     }
 
-    #🔥StatusNumbers__Basic__Li {
+    #🧱StatusNumbers__Basic__Li {
       flex: 1;
       line-height: 100%;
       display: flex;
@@ -102,14 +102,14 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🔥StatusNumbers__Attributes {
+  #🧱StatusNumbers__Attributes {
     position: absolute;
     inset: 41.5% 68% 30% 13%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    #🔥StatusNumbers__Attributes__Li {
+    #🧱StatusNumbers__Attributes__Li {
       flex: 1;
       line-height: 100%;
       display: flex;
@@ -117,7 +117,7 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🔥StatusNumbers__Er {
+  #🧱StatusNumbers__Er {
     position: absolute;
     inset: 89.8% 25% 5.5% 63%;
     display: flex;

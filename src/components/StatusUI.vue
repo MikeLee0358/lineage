@@ -1,6 +1,6 @@
 <template>
-  <ul id="🔥StatusUI" @click.stop="handleClick">
-    <li id="🔥StatusUI__Close" class="--close" />
+  <ul id="🧱StatusUI" @click.stop="handleClick">
+    <li id="🧱StatusUI__Close" class="--close" />
     <StatusNumbers />
     <StatusEquips />
   </ul>
@@ -22,14 +22,14 @@ function handleClick(e) {
 </script>
 
 <style lang="scss">
-#🔥StatusUI {
+#🧱StatusUI {
   position: absolute;
   inset: -2216% 1359.3% 704.8% -2500%;
   background-image: url("/UI/UI_role.webp");
   background-size: cover;
   background-repeat: round;
 
-  #🔥StatusUI__Close {
+  #🧱StatusUI__Close {
     position: absolute;
     inset: 0.5% 2.25% 94% 86.5%;
     z-index: 2;

@@ -1,7 +1,7 @@
 <template>
-  <ul id="🔥StatusEquips">
+  <ul id="🧱StatusEquips">
     <li
-      id="🔥StatusEquips__Equip"
+      id="🧱StatusEquips__Equip"
       v-for="equip in roleStore.out.currentData().equips"
       :key="equip.id"
       :class="equip.category"
@@ -120,7 +120,7 @@ function getDataForAlgorithm(equip, event) {
 </script>
 
 <style lang="scss">
-#🔥StatusEquips {
+#🧱StatusEquips {
   position: absolute;
   inset: 0;
 
@@ -128,7 +128,7 @@ function getDataForAlgorithm(equip, event) {
     cursor: v-bind("changeCursor()");
   }
 
-  #🔥StatusEquips__Equip {
+  #🧱StatusEquips__Equip {
     position: absolute;
     width: 11%;
     height: 9%;

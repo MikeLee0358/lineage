@@ -1,30 +1,30 @@
 <template>
-  <article id="📃SinglePlayer">
-    <section id="📃SinglePlayer__Knight">
-      <KnightUI />
+  <article id="🏠game-demo">
+    <section id="🏠game-demo__X">
+      <UIKnight />
     </section>
 
-    <section id="📃SinglePlayer__PanelUI">
-      <HealthUI />
-      <ChatUI />
-      <ItemsUI />
-      <NumbersUI />
-      <FunctionUI />
+    <section id="🏠game-demo__X2">
+      <UIHealth />
+      <UIChat />
+      <UIItems />
+      <UINumbers />
+      <UIFunction />
     </section>
   </article>
 </template>
 
 <script setup>
-import HealthUI from "../components/HealthUI.vue";
-import KnightUI from "../components/KnightUI.vue";
-import ChatUI from "../components/ChatUI.vue";
-import ItemsUI from "../components/ItemsUI.vue";
-import NumbersUI from "../components/NumbersUI.vue";
-import FunctionUI from "../components/FunctionUI.vue";
+import UIHealth from "../components/UIHealth.vue";
+import UIKnight from "../components/UIKnight.vue";
+import UIChat from "../components/UIChat.vue";
+import UIItems from "../components/UIItems.vue";
+import UINumbers from "../components/UINumbers.vue";
+import UIFunction from "../components/UIFunction.vue";
 </script>
 
 <style lang="scss">
-#📃SinglePlayer {
+#🏠game-demo {
   background: black;
   color: #e5e7eb;
   height: 100vh;
@@ -55,19 +55,19 @@ import FunctionUI from "../components/FunctionUI.vue";
   }
 }
 
-#📃SinglePlayer__Knight {
+#🏠game-demo__X {
   position: relative;
   height: 73%;
 }
 
-#📃SinglePlayer__PanelUI {
+#🏠game-demo__X2 {
   display: grid;
   grid-template-columns: 17.5% 1fr 23%;
   grid-template-rows: 20% 64% 16%;
   grid-template-areas:
-    ". 🔥HealthUI ."
-    "🔥NumbersUI 🔥ChatUI 🔥ItemsUI"
-    "🔥NumbersUI . 🔥FunctionUI";
+    ". 🧱UIHealth ."
+    "🧱UINumbers 🧱UIChat 🧱UIItems"
+    "🧱UINumbers . 🧱UIFunction";
 
   position: relative;
   height: 27%;

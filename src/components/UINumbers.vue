@@ -1,12 +1,12 @@
 <template>
-  <ul id="🔥NumbersUI">
-    <li id="🔥NumbersUI__X1">
-      <div id="🔥NumbersUI__X1__Lv">1</div>
-      <div id="🔥NumbersUI__X1__Exp">0.00%</div>
+  <ul id="🧱UINumbers">
+    <li id="🧱UINumbers__X1">
+      <div id="🧱UINumbers__X1__Lv">1</div>
+      <div id="🧱UINumbers__X1__Exp">0.00%</div>
     </li>
-    <li id="🔥NumbersUI__X2">
-      <div id="🔥NumbersUI__X2__Ac">{{ roleStore.out.getAC() }}</div>
-      <div id="🔥NumbersUI__X2__State">0</div>
+    <li id="🧱UINumbers__X2">
+      <div id="🧱UINumbers__X2__Ac">{{ roleStore.out.getAC() }}</div>
+      <div id="🧱UINumbers__X2__State">0</div>
     </li>
   </ul>
 </template>
@@ -17,8 +17,8 @@ const roleStore = useRoleStore();
 </script>
 
 <style lang="scss">
-#🔥NumbersUI {
-  grid-area: 🔥NumbersUI;
+#🧱UINumbers {
+  grid-area: 🧱UINumbers;
   position: absolute;
   inset: -15.65% -37% 32.5% -24%;
   display: flex;
@@ -35,35 +35,35 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🔥NumbersUI__X1 {
+  #🧱UINumbers__X1 {
     flex: 1;
     display: flex;
     align-items: center;
     gap: 10vw;
     padding-left: 12%;
 
-    #🔥NumbersUI__X1__Lv {
+    #🧱UINumbers__X1__Lv {
       flex-basis: 9%;
       display: flex;
       justify-content: end;
     }
 
-    #🔥NumbersUI__X1__Exp {
+    #🧱UINumbers__X1__Exp {
       flex: 1;
     }
   }
 
-  #🔥NumbersUI__X2 {
+  #🧱UINumbers__X2 {
     flex: 1;
     display: flex;
     gap: 6vw;
     align-items: center;
 
-    #🔥NumbersUI__X2__Ac {
+    #🧱UINumbers__X2__Ac {
       flex-basis: 31%;
     }
 
-    #🔥NumbersUI__X2__State {
+    #🧱UINumbers__X2__State {
       flex: 1;
     }
   }

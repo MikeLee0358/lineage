@@ -1,5 +1,5 @@
 <template>
-  <section id="🔥ItemsUI" @click.stop="handleClick">
+  <section id="🧱UIItems" @click.stop="handleClick">
     <figure v-for="slot in data.slotList" :key="slot.id" :class="slot.hotkey">
       <img :src="roleStore.out.getUrl(slot.src)" />
       <figcaption class="slotInfo">
@@ -46,7 +46,7 @@ function getSlotColor(imgUrl) {
 
 function handleSlot(classOrKey, isRepeatState = false) {
   //classOrKey required string F5 or F6 ... F12
-  const slots = Array.from(document.querySelector("#🔥ItemsUI").children);
+  const slots = Array.from(document.querySelector("#🧱UIItems").children);
 
   slots.forEach((slot) => {
     slot.classList.remove("active");
@@ -92,8 +92,8 @@ onBeforeRouteLeave(() => {
 </script>
 
 <style lang="scss">
-#🔥ItemsUI {
-  grid-area: 🔥ItemsUI;
+#🧱UIItems {
+  grid-area: 🧱UIItems;
   position: relative;
   padding: 3.75% 3.75% 3% 4%;
   display: grid;

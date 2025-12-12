@@ -2,10 +2,10 @@
   <figure
     :class="[knightStore.data.isDeathKnight ? '--deathKnight' : '--knight']"
   >
-    <figcaption id="🔥KnightUI">
-      <p id="🔥KnightUI__Title">蛇髮 名模↙</p>
-      <p id="🔥KnightUI__Name">熱血狂志</p>
-      <p id="🔥KnightUI__ChatEvent" v-show="knightStore.data.isShowGameChat">
+    <figcaption id="🧱UIKnight">
+      <p id="🧱UIKnight__Title">蛇髮 名模↙</p>
+      <p id="🧱UIKnight__Name">熱血狂志</p>
+      <p id="🧱UIKnight__ChatEvent" v-show="knightStore.data.isShowGameChat">
         熱血狂志: {{ knightStore.data.chatMsg }}
       </p>
     </figcaption>
@@ -30,7 +30,7 @@ knightStore.out.repeatTalkChatEvent(15);
   width: 11%;
   height: 15.75%;
 
-  #🔥KnightUI {
+  #🧱UIKnight {
     position: absolute;
     inset: -72% -50% 0% -50%;
     font-size: clamp(12px, 3.5vh, 30px);
@@ -45,15 +45,15 @@ knightStore.out.repeatTalkChatEvent(15);
       }
     }
 
-    #🔥KnightUI__Title {
+    #🧱UIKnight__Title {
       color: rgb(60, 255, 255);
     }
 
-    #🔥KnightUI__Name {
+    #🧱UIKnight__Name {
       color: rgb(255, 255, 0);
     }
 
-    #🔥KnightUI__ChatEvent {
+    #🧱UIKnight__ChatEvent {
       position: relative;
       z-index: 1;
       top: 15vh;
@@ -81,22 +81,22 @@ knightStore.out.repeatTalkChatEvent(15);
   width: 8%;
   height: 13.75%;
 
-  #🔥KnightUI {
+  #🧱UIKnight {
     position: absolute;
     inset: -73.5% -50% 0% -50%;
     font-size: clamp(12px, 3vh, 30px);
     line-height: 110%;
     text-align: center;
 
-    #🔥KnightUI__Title {
+    #🧱UIKnight__Title {
       color: rgb(60, 255, 255);
     }
 
-    #🔥KnightUI__Name {
+    #🧱UIKnight__Name {
       color: rgb(255, 255, 0);
     }
 
-    #🔥KnightUI__ChatEvent {
+    #🧱UIKnight__ChatEvent {
       position: relative;
       z-index: 1;
       top: 15vh;

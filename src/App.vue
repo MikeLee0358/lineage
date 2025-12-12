@@ -3,5 +3,8 @@
 </template>
 
 <script setup>
-import { RouterView } from "vue-router";
+import { RouterView, useRouter } from "vue-router";
+
+const router = useRouter();
+router.push("/game-demo");
 </script>
