@@ -19,9 +19,6 @@ export const useKnightStore = defineStore("knight", () => {
       GameChatTime: (second) => {
         {
           ESTest(second, "number");
-          ESTest(knight.data.isShowGameChat, "boolean");
-          ESTest(knight.data.isStopFunction, "boolean");
-          ESTest(algorithmStore.data.dice.bonus, "number");
         }
 
         setTimeout(function () {
@@ -47,10 +44,6 @@ export const useKnightStore = defineStore("knight", () => {
       getGameChatEvent: (chatEvent) => {
         {
           ESTest(chatEvent, "string");
-          ESTest(knight.data.chatMsg, "string");
-          ESTest(algorithmStore.data.dice.bonus, "number");
-          ESTest(chatStore.data.lines, "array");
-          ESTest(knight.data.isShowGameChat, "boolean");
         }
 
         switch (chatEvent) {

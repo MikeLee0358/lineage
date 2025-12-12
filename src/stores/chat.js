@@ -99,10 +99,6 @@ export const useChatStore = defineStore("chat", () => {
         }
       },
       updateChatState: () => {
-        {
-          ESTest(algorithmStore.data.dice.state, "number");
-        }
-
         if (algorithmStore.data.dice.state === -1) {
           chat.in.updateForNope();
         } else if (algorithmStore.data.dice.state === 0) {

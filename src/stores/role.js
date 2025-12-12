@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { reactive, computed } from "vue";
 import { useKnightStore } from "./knight";
-import data from "@/data/dataRole.json";
+import data from "@/assets/data/dataRole.json";
 import { ESTest } from "escss-estest";
 
 export const useRoleStore = defineStore("role", () => {
@@ -37,10 +37,6 @@ export const useRoleStore = defineStore("role", () => {
     },
     out: {
       currentData: () => {
-        {
-          ESTest(role.data.data[role.data.currentRole], "object");
-        }
-
         return role.data.data[role.data.currentRole];
       },
       getAC: () => {

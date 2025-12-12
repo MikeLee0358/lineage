@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "e2e": "playwright test",
+    "e2e": "playwright test --workers 6",
     "check": "prettier src --write --cache & eslint src/**/*.{vue,js} --cache"
   },
   "dependencies": {

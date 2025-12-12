@@ -1,43 +1,43 @@
 <template>
   <ul id="🧱StatusNumbers">
-    <ul id="🧱StatusNumbers__Level">
-      <li id="🧱StatusNumbers__Level__Lv">
+    <ul id="🧱StatusNumbers__X">
+      <li id="🧱StatusNumbers__X__Lv">
         {{ roleStore.out.currentData().basic.lv }}
       </li>
-      <li id="🧱StatusNumbers__Level__Exp">
+      <li id="🧱StatusNumbers__X__Exp">
         {{ roleStore.out.currentData().basic.exp }}
       </li>
     </ul>
-    <ul id="🧱StatusNumbers__Basic">
-      <li id="🧱StatusNumbers__Basic__Li">
+    <ul id="🧱StatusNumbers__X2">
+      <li id="🧱StatusNumbers__X2__Hp">
         {{ roleStore.out.currentData().basic.hp }}/{{
           roleStore.out.currentData().basic.hp
         }}
       </li>
-      <li id="🧱StatusNumbers__Basic__Li">
+      <li id="🧱StatusNumbers__X2__Mp">
         {{ roleStore.out.currentData().basic.mp }}/{{
           roleStore.out.currentData().basic.mp
         }}
       </li>
-      <li id="🧱StatusNumbers__Basic__Li">{{ roleStore.out.getAC() }}</li>
+      <li id="🧱StatusNumbers__X2__Ac">{{ roleStore.out.getAC() }}</li>
     </ul>
-    <ul id="🧱StatusNumbers__Attributes">
-      <li id="🧱StatusNumbers__Attributes__Li">
+    <ul id="🧱StatusNumbers__X3">
+      <li id="🧱StatusNumbers__X3__Str">
         {{ roleStore.out.currentData().basic.str }}
       </li>
-      <li id="🧱StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__X3__Dex">
         {{ roleStore.out.currentData().basic.dex }}
       </li>
-      <li id="🧱StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__X3__Con">
         {{ roleStore.out.currentData().basic.con }}
       </li>
-      <li id="🧱StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__X3__Int">
         {{ roleStore.out.currentData().basic.int }}
       </li>
-      <li id="🧱StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__X3__Wis">
         {{ roleStore.out.currentData().basic.wis }}
       </li>
-      <li id="🧱StatusNumbers__Attributes__Li">
+      <li id="🧱StatusNumbers__X3__Cha">
         {{ roleStore.out.currentData().basic.cha }}
       </li>
     </ul>
@@ -72,7 +72,7 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🧱StatusNumbers__Level {
+  #🧱StatusNumbers__X {
     position: absolute;
     inset: 4% 15% 91.5% 30%;
     display: flex;
@@ -81,7 +81,7 @@ const roleStore = useRoleStore();
     gap: 5%;
   }
 
-  #🧱StatusNumbers__Basic {
+  #🧱StatusNumbers__X2 {
     position: absolute;
     inset: 12.2% 46% 73% 30%;
     display: flex;
@@ -94,7 +94,9 @@ const roleStore = useRoleStore();
       }
     }
 
-    #🧱StatusNumbers__Basic__Li {
+    #🧱StatusNumbers__X2__Hp,
+    #🧱StatusNumbers__X2__Mp,
+    #🧱StatusNumbers__X2__Ac {
       flex: 1;
       line-height: 100%;
       display: flex;
@@ -102,14 +104,19 @@ const roleStore = useRoleStore();
     }
   }
 
-  #🧱StatusNumbers__Attributes {
+  #🧱StatusNumbers__X3 {
     position: absolute;
     inset: 41.5% 68% 30% 13%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    #🧱StatusNumbers__Attributes__Li {
+    #🧱StatusNumbers__X3__Str,
+    #🧱StatusNumbers__X3__Dex,
+    #🧱StatusNumbers__X3__Con,
+    #🧱StatusNumbers__X3__Int,
+    #🧱StatusNumbers__X3__Wis,
+    #🧱StatusNumbers__X3__Cha {
       flex: 1;
       line-height: 100%;
       display: flex;

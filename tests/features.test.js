@@ -34,7 +34,7 @@ test.describe('mouse scroll testing', () => {
     await page.locator('li:nth-child(9)').click();
     await expect(page.locator('id=🏠game-demo__X2')).toContainText('+0 精靈盾牌 一瞬間發出 銀色的 光芒。');
     await expect(page.locator('[id="🧱UINumbers__X2__Ac"]')).toContainText('-8');
-    await expect(page.locator('[id="🧱StatusNumbers__Basic__Li"]:nth-of-type(3)')).toContainText('-8');
+    await expect(page.locator('[id="🧱StatusNumbers__X2__Ac"]:nth-of-type(3)')).toContainText('-8');
   });
 
   test('armor to -1', async ({ page }) => {
@@ -44,7 +44,7 @@ test.describe('mouse scroll testing', () => {
     await page.locator('li:nth-child(10)').click();
     await expect(page.locator('id=🏠game-demo__X2')).toContainText('+0 力量手套 一瞬間發出 黑色的 光芒。');
     await expect(page.locator('[id="🧱UINumbers__X2__Ac"]')).toContainText('-6');
-    await expect(page.locator('[id="🧱StatusNumbers__Basic__Li"]:nth-of-type(3)')).toContainText('-6');
+    await expect(page.locator('[id="🧱StatusNumbers__X2__Ac"]:nth-of-type(3)')).toContainText('-6');
   });
 
   test('weapon to +1', async ({ page }) => {

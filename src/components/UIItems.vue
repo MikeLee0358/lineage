@@ -16,7 +16,7 @@ import { useChatStore } from "../stores/chat";
 import { useRoleStore } from "../stores/role";
 import { useScrollStore } from "../stores/scroll";
 import { onBeforeRouteLeave } from "vue-router";
-import dataSlot from "@/data/dataSlot.json";
+import dataSlot from "@/assets/data/dataSlot.json";
 const roleStore = useRoleStore();
 const chatStore = useChatStore();
 const scrollStore = useScrollStore();

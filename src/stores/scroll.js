@@ -12,7 +12,6 @@ export const useScrollStore = defineStore("scroll", () => {
       changeScroll: (string) => {
         {
           ESTest(string, "string");
-          ESTest(scroll.data.targetScroll, "string");
         }
 
         switch (string) {
@@ -46,14 +45,11 @@ export const useScrollStore = defineStore("scroll", () => {
       },
       getIsScrollType: (type) => {
         {
-          ESTest(scroll.out.getScrollType() + type, "string");
+          ESTest(type, "string");
         }
         return scroll.out.getScrollType() === type;
       },
       getScrollType: () => {
-        {
-          ESTest(scroll.data.targetScroll, "string");
-        }
         if (scroll.data.targetScroll === "none") return;
 
         return /(white)|(cursed)|(blessed)/g.exec(scroll.data.targetScroll)[0];

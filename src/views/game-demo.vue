@@ -1,6 +1,7 @@
 <template>
   <article id="🏠game-demo">
     <section id="🏠game-demo__X">
+      <UIStatus />
       <UIKnight />
     </section>
 
@@ -9,18 +10,17 @@
       <UIChat />
       <UIItems />
       <UINumbers />
-      <UIFunction />
     </section>
   </article>
 </template>
 
 <script setup>
+import UIStatus from "../components/UIStatus.vue";
 import UIHealth from "../components/UIHealth.vue";
 import UIKnight from "../components/UIKnight.vue";
 import UIChat from "../components/UIChat.vue";
 import UIItems from "../components/UIItems.vue";
 import UINumbers from "../components/UINumbers.vue";
-import UIFunction from "../components/UIFunction.vue";
 </script>
 
 <style lang="scss">
@@ -67,7 +67,7 @@ import UIFunction from "../components/UIFunction.vue";
   grid-template-areas:
     ". 🧱UIHealth ."
     "🧱UINumbers 🧱UIChat 🧱UIItems"
-    "🧱UINumbers . 🧱UIFunction";
+    "🧱UINumbers . .";
 
   position: relative;
   height: 27%;
