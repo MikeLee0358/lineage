@@ -13,7 +13,7 @@ export const useChatStore = defineStore("chat", () => {
       lines: Array(7),
     }),
     in: {
-      reuse: {
+      shared: {
         pushAndShiftArray: (text) => {
           {
             ESTest(text, "string");
@@ -42,34 +42,34 @@ export const useChatStore = defineStore("chat", () => {
         },
       },
       updateArmor: () => {
-        chat.in.reuse.pushAndShiftArray("請選擇一種防具。");
+        chat.in.shared.pushAndShiftArray("請選擇一種防具。");
       },
       updateWeapon: () => {
-        chat.in.reuse.pushAndShiftArray("請選擇一種武器。");
+        chat.in.shared.pushAndShiftArray("請選擇一種武器。");
       },
       updateForOne: () => {
         {
           ESTest(algorithmStore.data.target.name, "string");
         }
 
-        chat.in.reuse.pushAndShiftArray(
-          `${chat.in.reuse.showNumber()} ${
+        chat.in.shared.pushAndShiftArray(
+          `${chat.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 一瞬間發出 ${chat.in.reuse.detectColor()} 光芒。`,
+          } 一瞬間發出 ${chat.in.shared.detectColor()} 光芒。`,
         );
       },
       updateForGone: () => {
-        chat.in.reuse.pushAndShiftArray(
-          `${chat.in.reuse.showNumber()} ${
+        chat.in.shared.pushAndShiftArray(
+          `${chat.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 產生激烈的 ${chat.in.reuse.detectColor()} 光芒，一會兒後就消失了。`,
+          } 產生激烈的 ${chat.in.shared.detectColor()} 光芒，一會兒後就消失了。`,
         );
       },
       updateForNope: () => {
-        chat.in.reuse.pushAndShiftArray(
-          `${chat.in.reuse.showNumber()} ${
+        chat.in.shared.pushAndShiftArray(
+          `${chat.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 持續發出 激烈的 ${chat.in.reuse.detectColor()}光芒，但是沒有任何事情發生。`,
+          } 持續發出 激烈的 ${chat.in.shared.detectColor()}光芒，但是沒有任何事情發生。`,
         );
       },
       updateForTwoUp: () => {
@@ -77,10 +77,10 @@ export const useChatStore = defineStore("chat", () => {
           ESTest(algorithmStore.data.target.name, "string");
         }
 
-        chat.in.reuse.pushAndShiftArray(
-          `${chat.in.reuse.showNumber()} ${
+        chat.in.shared.pushAndShiftArray(
+          `${chat.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 持續發出 ${chat.in.reuse.detectColor()} 光芒。`,
+          } 持續發出 ${chat.in.shared.detectColor()} 光芒。`,
         );
       },
     },

@@ -28,7 +28,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
     }),
     in: {
-      reuse: {
+      shared: {
         getRandomStateOneTo: (value) => {
           {
             ESTest(value, "number");
@@ -45,7 +45,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         handleUpdate: () => {
           chatStore.out.updateChatState();
           algorithm.in.updateEquipValue();
-          algorithm.in.reuse.resetAtTheEnd();
+          algorithm.in.shared.resetAtTheEnd();
         },
         handleUpdateOver9: () => {
           // algorithm.data.dice.state:
@@ -83,7 +83,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           }
 
           chatStore.out.updateChatState();
-          algorithm.in.reuse.resetAtTheEnd();
+          algorithm.in.shared.resetAtTheEnd();
 
           function isSuccessIn(array) {
             return array.includes(algorithm.data.dice.state);
@@ -110,7 +110,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         algorithm.data.target.value = 0;
         chatStore.out.updateChatState();
         getEquipGoneEffect();
-        algorithm.in.reuse.resetAtTheEnd();
+        algorithm.in.shared.resetAtTheEnd();
 
         function getEquipGoneEffect() {
           let tempArmor = equip.armor;
@@ -289,37 +289,37 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           switch (scrollStore.out.getScrollType()) {
             case "blessed":
               if (algorithm.data.target.value < 3) {
-                algorithm.in.reuse.getRandomStateOneTo(3);
-                algorithm.in.reuse.handleUpdate();
+                algorithm.in.shared.getRandomStateOneTo(3);
+                algorithm.in.shared.handleUpdate();
               } else if (algorithm.data.target.value < 6) {
-                algorithm.in.reuse.getRandomStateOneTo(2);
-                algorithm.in.reuse.handleUpdate();
+                algorithm.in.shared.getRandomStateOneTo(2);
+                algorithm.in.shared.handleUpdate();
               } else if (algorithm.data.target.value < 9) {
-                algorithm.in.reuse.getRandomStateOneTo(1);
-                algorithm.in.reuse.handleUpdate();
+                algorithm.in.shared.getRandomStateOneTo(1);
+                algorithm.in.shared.handleUpdate();
               } else {
-                algorithm.in.reuse.getRandomStateOneTo(6);
-                algorithm.in.reuse.handleUpdateOver9();
+                algorithm.in.shared.getRandomStateOneTo(6);
+                algorithm.in.shared.handleUpdateOver9();
               }
               break;
 
             case "white":
               if (algorithm.data.target.value < 9) {
-                algorithm.in.reuse.getRandomStateOneTo(1);
-                algorithm.in.reuse.handleUpdate();
+                algorithm.in.shared.getRandomStateOneTo(1);
+                algorithm.in.shared.handleUpdate();
               } else {
-                algorithm.in.reuse.getRandomStateOneTo(6);
-                algorithm.in.reuse.handleUpdateOver9();
+                algorithm.in.shared.getRandomStateOneTo(6);
+                algorithm.in.shared.handleUpdateOver9();
               }
               break;
 
             case "cursed":
               if (algorithm.data.target.value > -9) {
-                algorithm.in.reuse.getRandomStateOneTo(1);
-                algorithm.in.reuse.handleUpdate();
+                algorithm.in.shared.getRandomStateOneTo(1);
+                algorithm.in.shared.handleUpdate();
               } else {
-                algorithm.in.reuse.getRandomStateOneTo(6);
-                algorithm.in.reuse.handleUpdateOver9();
+                algorithm.in.shared.getRandomStateOneTo(6);
+                algorithm.in.shared.handleUpdateOver9();
               }
               break;
           }
