@@ -15,10 +15,9 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from "vue";
+import { reactive } from "vue";
 import { useChatStore } from "../stores/chat";
 import { useScrollStore } from "../stores/scroll";
-import { onBeforeRouteLeave } from "vue-router";
 import { usePageGameStore } from "../stores/pages/page-game";
 
 const pageGameStore = usePageGameStore();
@@ -78,20 +77,6 @@ function handleClick(e) {
   scrollStore.out.clearClickScrollTimer();
   handleSlot(scrollClass, true);
 }
-
-function handleKeyboard(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  scrollStore.out.clearClickScrollTimer();
-  handleSlot(e.key);
-}
-
-onMounted(async () => {
-  document.addEventListener("keydown", handleKeyboard);
-});
-onBeforeRouteLeave(() => {
-  document.removeEventListener("keydown", handleKeyboard);
-});
 </script>
 
 <style lang="scss">
