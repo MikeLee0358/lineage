@@ -11,7 +11,6 @@ export const useKnightStore = defineStore("knight", () => {
   const knight = {
     data: reactive({
       chatMsg: "",
-      isDeathKnight: false,
       isShowGameChat: false,
       isStopFunction: false,
     }),

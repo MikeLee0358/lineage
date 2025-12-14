@@ -17,12 +17,10 @@
 <script setup>
 import { useRoleStore } from "../stores/role";
 import { useScrollStore } from "../stores/scroll";
-import { useKnightStore } from "../stores/knight";
 import { useAlgorithmStore } from "../stores/algorithm";
 const roleStore = useRoleStore();
 const algorithmStore = useAlgorithmStore();
 const scrollStore = useScrollStore();
-const knightStore = useKnightStore();
 
 function changeCursor() {
   if (scrollStore.data.targetScroll === "none") {
@@ -103,14 +101,6 @@ function getDataForAlgorithm(equip, event) {
   //event parameter is used for when equip was gone.
   const updateEquipValue = () =>
     setTimeout(() => (equip.value = algorithmStore.data.target.value), 0);
-
-  if (equip.name === "點擊變身" && knightStore.data.isDeathKnight) {
-    knightStore.data.isDeathKnight = false;
-    knightStore.out.getGameChatEvent("toBeKnight");
-  } else if (equip.name === "點擊變身" && !knightStore.data.isDeathKnight) {
-    knightStore.data.isDeathKnight = true;
-    knightStore.out.getGameChatEvent("toBeDeathKnight");
-  }
 
   algorithmStore.out.updateData(equip);
 
