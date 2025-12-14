@@ -1,26 +1,26 @@
 <template>
-  <ul id="🧱StatusNumbers">
-    <ul id="🧱StatusNumbers__X">
-      <li id="🧱StatusNumbers__X__Lv">
+  <section id="🧱StatusNumbers">
+    <div id="🧱StatusNumbers__X">
+      <span id="🧱StatusNumbers__X__Lv">
         {{ roleStore.out.currentData().basic.lv }}
-      </li>
-      <li id="🧱StatusNumbers__X__Exp">
+      </span>
+      <span id="🧱StatusNumbers__X__Exp">
         {{ roleStore.out.currentData().basic.exp }}
-      </li>
-    </ul>
-    <ul id="🧱StatusNumbers__X2">
-      <li id="🧱StatusNumbers__X2__Hp">
+      </span>
+    </div>
+    <div id="🧱StatusNumbers__X2">
+      <span id="🧱StatusNumbers__X2__Hp">
         {{ roleStore.out.currentData().basic.hp }}/{{
           roleStore.out.currentData().basic.hp
         }}
-      </li>
-      <li id="🧱StatusNumbers__X2__Mp">
+      </span>
+      <span id="🧱StatusNumbers__X2__Mp">
         {{ roleStore.out.currentData().basic.mp }}/{{
           roleStore.out.currentData().basic.mp
         }}
-      </li>
+      </span>
       <li id="🧱StatusNumbers__X2__Ac">{{ roleStore.out.getAC() }}</li>
-    </ul>
+    </div>
     <ul id="🧱StatusNumbers__X3">
       <li id="🧱StatusNumbers__X3__Str">
         {{ roleStore.out.currentData().basic.str }}
@@ -42,7 +42,7 @@
       </li>
     </ul>
     <li id="🧱StatusNumbers__Er">2</li>
-  </ul>
+  </section>
 </template>
 
 <script setup>

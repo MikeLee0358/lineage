@@ -1,8 +1,8 @@
 <template>
-  <ul id="🧱UIStatus">
+  <section id="🧱UIStatus">
     <StatusNumbers />
     <StatusEquips />
-  </ul>
+  </section>
 </template>
 
 <script setup>

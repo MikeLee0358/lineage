@@ -1,17 +1,17 @@
 <template>
-  <article id="🏠game-demo">
-    <section id="🏠game-demo__X">
+  <main id="🏠page-demo">
+    <div id="🏠page-demo__X">
       <UIStatus />
       <UIKnight />
-    </section>
+    </div>
 
-    <section id="🏠game-demo__X2">
+    <div id="🏠page-demo__X2">
       <UIHealth />
       <UIChat />
       <UIItems />
       <UINumbers />
-    </section>
-  </article>
+    </div>
+  </main>
 </template>
 
 <script setup>
@@ -24,7 +24,7 @@ import UINumbers from "../components/UINumbers.vue";
 </script>
 
 <style lang="scss">
-#🏠game-demo {
+#🏠page-demo {
   background: black;
   color: #e5e7eb;
   height: 100vh;
@@ -55,12 +55,12 @@ import UINumbers from "../components/UINumbers.vue";
   }
 }
 
-#🏠game-demo__X {
+#🏠page-demo__X {
   position: relative;
   height: 73%;
 }
 
-#🏠game-demo__X2 {
+#🏠page-demo__X2 {
   display: grid;
   grid-template-columns: 17.5% 1fr 23%;
   grid-template-rows: 20% 64% 16%;

@@ -1,13 +1,13 @@
 <template>
-  <ul id="🧱UIChat">
-    <li
-      id="🧱UIChat__Li"
+  <section id="🧱UIChat">
+    <p
+      id="🧱UIChat__Line"
       v-for="(chatline, index) in chatStore.data.lines"
       :key="index"
     >
       {{ chatline }}
-    </li>
-  </ul>
+    </p>
+  </section>
 </template>
 
 <script setup>

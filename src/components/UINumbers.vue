@@ -1,14 +1,14 @@
 <template>
-  <ul id="🧱UINumbers">
-    <li id="🧱UINumbers__X1">
-      <div id="🧱UINumbers__X1__Lv">1</div>
-      <div id="🧱UINumbers__X1__Exp">0.00%</div>
-    </li>
-    <li id="🧱UINumbers__X2">
-      <div id="🧱UINumbers__X2__Ac">{{ roleStore.out.getAC() }}</div>
-      <div id="🧱UINumbers__X2__State">0</div>
-    </li>
-  </ul>
+  <section id="🧱UINumbers">
+    <div id="🧱UINumbers__X1">
+      <span id="🧱UINumbers__X1__Lv">1</span>
+      <span id="🧱UINumbers__X1__Exp">0.00%</span>
+    </div>
+    <div id="🧱UINumbers__X2">
+      <span id="🧱UINumbers__X2__Ac">{{ roleStore.out.getAC() }}</span>
+      <span id="🧱UINumbers__X2__State">0</span>
+    </div>
+  </section>
 </template>
 
 <script setup>

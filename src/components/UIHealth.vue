@@ -1,16 +1,16 @@
 <template>
-  <ul id="🧱UIHealth">
-    <li id="🧱UIHealth__Hp">
+  <section id="🧱UIHealth">
+    <span id="🧱UIHealth__Hp">
       HP:{{ roleStore.out.currentData().basic.hp }}/{{
         roleStore.out.currentData().basic.hp
       }}
-    </li>
-    <li id="🧱UIHealth__Mp">
+    </span>
+    <span id="🧱UIHealth__Mp">
       MP:{{ roleStore.out.currentData().basic.mp }}/{{
         roleStore.out.currentData().basic.mp
       }}
-    </li>
-  </ul>
+    </span>
+  </section>
 </template>
 
 <script setup>
