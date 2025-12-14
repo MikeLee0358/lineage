@@ -11,20 +11,22 @@
     "check": "prettier src --write --cache & eslint src/**/*.{vue,js} --cache"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "escss-estest": "^2.6.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.25",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@playwright/test": "^1.57.0",
     "@vitejs/plugin-vue": "^6.0.3",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "sass": "^1.96.0",
+    "tailwindcss": "^4.1.18",
     "vite": "^7.2.7"
   }
 }
