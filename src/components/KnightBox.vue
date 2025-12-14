@@ -1,9 +1,12 @@
 <template>
-  <section id="🧱UIKnight">
-    <div id="🧱UIKnight__X">
-      <p id="🧱UIKnight__X__Title">蛇髮 名模↙</p>
-      <p id="🧱UIKnight__X__Name">熱血狂志</p>
-      <p id="🧱UIKnight__X__ChatEvent" v-show="knightStore.data.isShowGameChat">
+  <section id="🧱KnightBox">
+    <div id="🧱KnightBox__X">
+      <p id="🧱KnightBox__X__Title">蛇髮 名模↙</p>
+      <p id="🧱KnightBox__X__Name">熱血狂志</p>
+      <p
+        id="🧱KnightBox__X__ChatEvent"
+        v-show="knightStore.data.isShowGameChat"
+      >
         熱血狂志: {{ knightStore.data.chatMsg }}
       </p>
     </div>
@@ -18,7 +21,7 @@ knightStore.out.repeatTalkChatEvent(10);
 </script>
 
 <style lang="scss">
-#🧱UIKnight {
+#🧱KnightBox {
   position: relative;
   background-image: url("/knight/knight.gif");
   background-size: cover;
@@ -29,7 +32,7 @@ knightStore.out.repeatTalkChatEvent(10);
   height: 15.75%;
 }
 
-#🧱UIKnight__X {
+#🧱KnightBox__X {
   position: absolute;
   inset: -72% -50% 0% -50%;
   font-size: clamp(12px, 3.5vh, 30px);
@@ -45,15 +48,15 @@ knightStore.out.repeatTalkChatEvent(10);
   }
 }
 
-#🧱UIKnight__X__Title {
+#🧱KnightBox__X__Title {
   color: rgb(60, 255, 255);
 }
 
-#🧱UIKnight__X__Name {
+#🧱KnightBox__X__Name {
   color: rgb(255, 255, 0);
 }
 
-#🧱UIKnight__X__ChatEvent {
+#🧱KnightBox__X__ChatEvent {
   position: relative;
   z-index: 1;
   top: 15vh;

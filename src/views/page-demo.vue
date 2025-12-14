@@ -1,8 +1,8 @@
 <template>
   <main id="🏠page-demo">
     <div id="🏠page-demo__X">
-      <UIStatus />
-      <UIKnight />
+      <StatusBox />
+      <KnightBox />
     </div>
 
     <div id="🏠page-demo__X2">
@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-import UIStatus from "../components/UIStatus.vue";
+import StatusBox from "../components/StatusBox.vue";
 import UIHealth from "../components/UIHealth.vue";
-import UIKnight from "../components/UIKnight.vue";
+import KnightBox from "../components/KnightBox.vue";
 import UIChat from "../components/UIChat.vue";
 import UIItems from "../components/UIItems.vue";
 import UINumbers from "../components/UINumbers.vue";

@@ -1,5 +1,5 @@
 <template>
-  <section id="🧱UIStatus">
+  <section id="🧱StatusBox">
     <StatusNumbers />
     <StatusEquips />
   </section>
@@ -11,7 +11,7 @@ import StatusEquips from "../components/StatusEquips.vue";
 </script>
 
 <style lang="scss">
-#🧱UIStatus {
+#🧱StatusBox {
   position: absolute;
   inset: 0% 60% 0% 0%;
   background-image: url("/UI/UI_role.webp");
