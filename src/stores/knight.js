@@ -106,15 +106,8 @@ export const useKnightStore = defineStore("knight", () => {
             temp.data.chatMsg =
               "國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國";
             break;
-
-          case "toBeKnight":
-            temp.data.chatMsg = "騎士好棒棒";
-            break;
-
-          case "toBeDeathKnight":
-            temp.data.chatMsg = "..";
-            break;
         }
+
         temp.data.isShowGameChat = true;
         temp.in.GameChatTime(10);
       },

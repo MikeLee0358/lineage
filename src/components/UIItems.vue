@@ -1,5 +1,5 @@
 <template>
-  <section id="🧱UIItems" @click.stop="handleClick">
+  <section id="🧱UIItems" @click="handleClick">
     <figure
       v-for="slot in pageGameStore.data.slot"
       :key="slot.id"
