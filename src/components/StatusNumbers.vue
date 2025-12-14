@@ -15,7 +15,7 @@
       <span id="🧱StatusNumbers__X2__Mp">
         {{ pageGameStore.data.basic.mp }}/{{ pageGameStore.data.basic.mp }}
       </span>
-      <li id="🧱StatusNumbers__X2__Ac">{{ roleStore.out.getAC() }}</li>
+      <li id="🧱StatusNumbers__X2__Ac">{{ pageGameStore.out.getAC() }}</li>
     </div>
     <ul id="🧱StatusNumbers__X3">
       <li id="🧱StatusNumbers__X3__Str">
@@ -42,12 +42,9 @@
 </template>
 
 <script setup>
-import { useRoleStore } from "../stores/role";
 import { usePageGameStore } from "../stores/pages/page-game";
 
 const pageGameStore = usePageGameStore();
-
-const roleStore = useRoleStore();
 </script>
 
 <style lang="scss">

@@ -6,7 +6,7 @@
       :key="equip.id"
       :class="equip.category"
       :style="{
-        backgroundImage: `url(${roleStore.out.getUrl(equip.src)})`,
+        backgroundImage: `url(/${equip.src})`,
       }"
       @click="updateEquip(equip, $event)"
       :data-displayEquipInfo="getEquipInfo(equip)"
@@ -15,10 +15,8 @@
 </template>
 
 <script setup>
-import { useRoleStore } from "../stores/role";
 import { useScrollStore } from "../stores/scroll";
 import { useAlgorithmStore } from "../stores/algorithm";
-const roleStore = useRoleStore();
 const algorithmStore = useAlgorithmStore();
 const scrollStore = useScrollStore();
 import { usePageGameStore } from "../stores/pages/page-game";
@@ -27,9 +25,9 @@ const pageGameStore = usePageGameStore();
 
 function changeCursor() {
   if (scrollStore.data.targetScroll === "none") {
-    return `url(${roleStore.out.getUrl("UI/UI_pointer.webp")}), auto`;
+    return `url("/UI/UI_pointer.webp"), auto`;
   } else {
-    return `url(${roleStore.out.getUrl("UI/UI_target.webp")}), auto`;
+    return `url("/UI/UI_target.webp"), auto`;
   }
 }
 

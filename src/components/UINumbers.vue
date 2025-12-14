@@ -5,15 +5,16 @@
       <span id="🧱UINumbers__X1__Exp">0.00%</span>
     </div>
     <div id="🧱UINumbers__X2">
-      <span id="🧱UINumbers__X2__Ac">{{ roleStore.out.getAC() }}</span>
+      <span id="🧱UINumbers__X2__Ac">{{ pageGameStore.out.getAC() }}</span>
       <span id="🧱UINumbers__X2__State">0</span>
     </div>
   </section>
 </template>
 
 <script setup>
-import { useRoleStore } from "../stores/role";
-const roleStore = useRoleStore();
+import { usePageGameStore } from "../stores/pages/page-game";
+
+const pageGameStore = usePageGameStore();
 </script>
 
 <style lang="scss">

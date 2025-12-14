@@ -1,13 +1,11 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
 import { useChatStore } from "./chat";
-import { useRoleStore } from "./role";
 import { useScrollStore } from "./scroll";
 import { useKnightStore } from "./knight";
 import { ESTest } from "escss-estest";
 
 export const useAlgorithmStore = defineStore("algorithm", () => {
-  const roleStore = useRoleStore();
   const chatStore = useChatStore();
   const scrollStore = useScrollStore();
   const knightStore = useKnightStore();
@@ -118,7 +116,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           revertEffect();
 
           function goneEffect() {
-            roleStore.out.calcEquipAttribute("minusAttribute", equip);
             toggleEquipHidden();
             equip.armor = 0;
           }
@@ -127,7 +124,6 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
               toggleEquipHidden();
               equip.armor = tempArmor;
               equip.mr = tempMr;
-              roleStore.out.calcEquipAttribute("plusAttribute", equip);
             }, 3000);
           }
           function toggleEquipHidden() {

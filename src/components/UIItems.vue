@@ -5,7 +5,7 @@
       :key="slot.id"
       :class="slot.hotkey"
     >
-      <img :src="roleStore.out.getUrl(slot.src)" />
+      <img :src="`/${slot.src}`" />
       <figcaption class="slotInfo">
         <h1>{{ slot.name }}</h1>
         <p>{{ slot.description }}</p>
@@ -17,14 +17,11 @@
 <script setup>
 import { onMounted, reactive } from "vue";
 import { useChatStore } from "../stores/chat";
-import { useRoleStore } from "../stores/role";
 import { useScrollStore } from "../stores/scroll";
 import { onBeforeRouteLeave } from "vue-router";
 import { usePageGameStore } from "../stores/pages/page-game";
 
 const pageGameStore = usePageGameStore();
-
-const roleStore = useRoleStore();
 const chatStore = useChatStore();
 const scrollStore = useScrollStore();
 
