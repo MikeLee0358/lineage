@@ -1,24 +1,15 @@
 import { defineStore } from "pinia";
-import { reactive, computed } from "vue";
-import { useKnightStore } from "./knight";
-import data from "@/assets/data/dataRole.json";
+import { computed } from "vue";
+import { usePageGameStore } from "./pages/page-game";
 import { ESTest } from "escss-estest";
 
 export const useRoleStore = defineStore("role", () => {
-  const knightStore = useKnightStore();
+  const pageGameStore = usePageGameStore();
 
-  const role = {
-    data: reactive({
-      data,
-      currentRole: "knight", // depends on the VueRouter in RolesPage.vue Component
-    }),
+  const temp = {
     in: {
       getTotalEquipsAC: () => {
-        {
-          ESTest(role.out.currentData().equips, "array");
-        }
-
-        const roleEquips = role.out.currentData().equips;
+        const roleEquips = pageGameStore.data.equips;
         let totalEquipsAC = 0;
 
         roleEquips.forEach((roleEquip) => {
@@ -36,24 +27,13 @@ export const useRoleStore = defineStore("role", () => {
       },
     },
     out: {
-      currentData: () => {
-        return role.data.data[role.data.currentRole];
-      },
       getAC: () => {
         {
-          ESTest(role.out.currentData().basic.ac, "number");
-          ESTest(role.in.getTotalEquipsAC(), "number");
+          ESTest(temp.in.getTotalEquipsAC(), "number");
         }
 
-        const roleAC = role.out.currentData().basic.ac;
-        const totalEquipsAC = role.in.getTotalEquipsAC();
-
-        if (roleAC - totalEquipsAC === -40) {
-          knightStore.out.getGameChatEvent("armor1");
-        }
-        if (roleAC - totalEquipsAC === -45) {
-          knightStore.out.getGameChatEvent("armor2");
-        }
+        const roleAC = pageGameStore.data.basic.ac;
+        const totalEquipsAC = temp.in.getTotalEquipsAC();
 
         return roleAC - totalEquipsAC;
       },
@@ -70,10 +50,10 @@ export const useRoleStore = defineStore("role", () => {
         if (equip.isAttrEquip) {
           const attr = equipToAttr[equip.name];
           const plusAttr = computed(
-            () => (role.out.currentData().basic[attr] += equip.attribute[attr]),
+            () => (pageGameStore.data.basic[attr] += equip.attribute[attr]),
           );
           const minusAttr = computed(
-            () => (role.out.currentData().basic[attr] -= equip.attribute[attr]),
+            () => (pageGameStore.data.basic[attr] -= equip.attribute[attr]),
           );
 
           if (string === "plusAttribute") plusAttr.value;
@@ -91,7 +71,6 @@ export const useRoleStore = defineStore("role", () => {
   };
 
   return {
-    data: role.data,
-    out: role.out,
+    out: temp.out,
   };
 });

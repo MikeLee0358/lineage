@@ -6,5 +6,5 @@
 import { RouterView, useRouter } from "vue-router";
 
 const router = useRouter();
-router.push("/page-demo");
+router.push("/page-game");
 </script>

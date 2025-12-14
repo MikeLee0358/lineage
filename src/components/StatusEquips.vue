@@ -2,13 +2,13 @@
   <ul id="🧱StatusEquips">
     <li
       id="🧱StatusEquips__Equip"
-      v-for="equip in roleStore.out.currentData().equips"
+      v-for="equip in pageGameStore.data.equips"
       :key="equip.id"
       :class="equip.category"
       :style="{
         backgroundImage: `url(${roleStore.out.getUrl(equip.src)})`,
       }"
-      @click.stop="getDataForAlgorithm(equip, $event)"
+      @click="updateEquip(equip, $event)"
       :data-displayEquipInfo="getEquipInfo(equip)"
     />
   </ul>
@@ -21,6 +21,9 @@ import { useAlgorithmStore } from "../stores/algorithm";
 const roleStore = useRoleStore();
 const algorithmStore = useAlgorithmStore();
 const scrollStore = useScrollStore();
+import { usePageGameStore } from "../stores/pages/page-game";
+
+const pageGameStore = usePageGameStore();
 
 function changeCursor() {
   if (scrollStore.data.targetScroll === "none") {
@@ -29,10 +32,17 @@ function changeCursor() {
     return `url(${roleStore.out.getUrl("UI/UI_target.webp")}), auto`;
   }
 }
-function getEquipInfo(equip) {
-  const showPlusOrMinus = (value) => (value >= 0 ? `+${value}` : value);
 
-  const getName = () => {
+function getEquipInfo(equip) {
+  let temp = `${getName()}
+${getFeature()}
+${getMaterial()}`;
+
+  function showPlusOrMinus(value) {
+    return value >= 0 ? `+${value}` : value;
+  }
+
+  function getName() {
     const getNameArmor =
       () => `${showPlusOrMinus(equip.value)} ${equip.name} (使用中)
 防禦 ${equip.armor}${showPlusOrMinus(equip.value)}`;
@@ -43,26 +53,17 @@ function getEquipInfo(equip) {
         equip.attack.large
       }${showPlusOrMinus(equip.value)}` + getIsTwoHandsWeapon();
 
-    const getNameJewelry = () => {
-      if (
-        roleStore.data.currentRole === "knight" &&
-        equip.category.includes("right-ring")
-      ) {
-        return (equip.name = `點擊變身`);
-      } else {
-        return `${equip.name} (使用中)`;
-      }
-    };
-
     const getIsTwoHandsWeapon = () =>
       /雙手武器/.test(equip.grip) ? "\n  雙手武器" : "";
+
+    const getNameJewelry = () => `${equip.name} (使用中)`;
 
     if (equip.category === "weapon") return getNameWeapon();
     else if (equip.category.includes("armor")) return getNameArmor();
     else if (equip.category.includes("jewelry")) return getNameJewelry();
-  };
+  }
 
-  const getFeature = () => {
+  function getFeature() {
     //Jewelries are not opened yet
     const getFeatureText = () => {
       const showMR = () => {
@@ -84,28 +85,29 @@ ${equip.occupation}`;
     if (!equip.feature) return getNoneFeatureText();
     if (equip.category.includes("jewelry")) return "";
     return getFeatureText();
-  };
+  }
 
-  const getMaterial = () => {
+  function getMaterial() {
     //Jewelries are not opened yet
     if (equip.category.includes("jewelry")) return "";
     return `材質:${equip.material}
 重量 ${equip.weight}`;
-  };
+  }
 
-  return `${getName()}
-${getFeature()}
-${getMaterial()}`;
+  return temp;
 }
-function getDataForAlgorithm(equip, event) {
-  //event parameter is used for when equip was gone.
-  const updateEquipValue = () =>
-    setTimeout(() => (equip.value = algorithmStore.data.target.value), 0);
 
-  algorithmStore.out.updateData(equip);
+function updateEquip(equip, event) {
+  // save info in pinia
+  algorithmStore.data.target.name = equip.name;
+  algorithmStore.data.target.value = equip.value;
+  algorithmStore.data.target.category = equip.category;
+  algorithmStore.data.target.safetyValue = equip.safetyValue;
 
   algorithmStore.out.doAlgorithm(equip, event);
-  updateEquipValue();
+
+  // display number in UI
+  equip.value = algorithmStore.data.target.value;
 }
 </script>
 
@@ -231,10 +233,5 @@ function getDataForAlgorithm(equip, event) {
       }
     }
   }
-}
-
-.--hidden {
-  visibility: hidden !important;
-  opacity: 0 !important;
 }
 </style>

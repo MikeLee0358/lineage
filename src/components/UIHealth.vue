@@ -1,21 +1,17 @@
 <template>
   <section id="🧱UIHealth">
     <span id="🧱UIHealth__Hp">
-      HP:{{ roleStore.out.currentData().basic.hp }}/{{
-        roleStore.out.currentData().basic.hp
-      }}
+      HP:{{ pageGameStore.data.basic.hp }}/{{ pageGameStore.data.basic.hp }}
     </span>
     <span id="🧱UIHealth__Mp">
-      MP:{{ roleStore.out.currentData().basic.mp }}/{{
-        roleStore.out.currentData().basic.mp
-      }}
+      MP:{{ pageGameStore.data.basic.mp }}/{{ pageGameStore.data.basic.mp }}
     </span>
   </section>
 </template>
 
 <script setup>
-import { useRoleStore } from "../stores/role";
-const roleStore = useRoleStore();
+import { usePageGameStore } from "../stores/pages/page-game";
+const pageGameStore = usePageGameStore();
 </script>
 
 <style lang="scss">

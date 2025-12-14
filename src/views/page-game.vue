@@ -1,11 +1,11 @@
 <template>
-  <main id="🏠page-demo">
-    <div id="🏠page-demo__X">
+  <main id="🏠page-game">
+    <div id="🏠page-game__X">
       <StatusBox />
       <KnightBox />
     </div>
 
-    <div id="🏠page-demo__X2">
+    <div id="🏠page-game__X2">
       <UIHealth />
       <UIChat />
       <UIItems />
@@ -24,7 +24,7 @@ import UINumbers from "../components/UINumbers.vue";
 </script>
 
 <style lang="scss">
-#🏠page-demo {
+#🏠page-game {
   background: black;
   color: #e5e7eb;
   height: 100vh;
@@ -55,12 +55,12 @@ import UINumbers from "../components/UINumbers.vue";
   }
 }
 
-#🏠page-demo__X {
+#🏠page-game__X {
   position: relative;
   height: 73%;
 }
 
-#🏠page-demo__X2 {
+#🏠page-game__X2 {
   display: grid;
   grid-template-columns: 17.5% 1fr 23%;
   grid-template-rows: 20% 64% 16%;

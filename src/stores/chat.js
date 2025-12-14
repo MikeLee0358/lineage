@@ -8,7 +8,7 @@ export const useChatStore = defineStore("chat", () => {
   const scrollStore = useScrollStore();
   const algorithmStore = useAlgorithmStore();
 
-  const chat = {
+  const temp = {
     data: reactive({
       lines: Array(7),
     }),
@@ -19,8 +19,8 @@ export const useChatStore = defineStore("chat", () => {
             ESTest(text, "string");
           }
 
-          chat.data.lines.push(text);
-          chat.data.lines.shift();
+          temp.data.lines.push(text);
+          temp.data.lines.shift();
         },
         showNumber: () => {
           {
@@ -42,34 +42,34 @@ export const useChatStore = defineStore("chat", () => {
         },
       },
       updateArmor: () => {
-        chat.in.shared.pushAndShiftArray("請選擇一種防具。");
+        temp.in.shared.pushAndShiftArray("請選擇一種防具。");
       },
       updateWeapon: () => {
-        chat.in.shared.pushAndShiftArray("請選擇一種武器。");
+        temp.in.shared.pushAndShiftArray("請選擇一種武器。");
       },
       updateForOne: () => {
         {
           ESTest(algorithmStore.data.target.name, "string");
         }
 
-        chat.in.shared.pushAndShiftArray(
-          `${chat.in.shared.showNumber()} ${
+        temp.in.shared.pushAndShiftArray(
+          `${temp.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 一瞬間發出 ${chat.in.shared.detectColor()} 光芒。`,
+          } 一瞬間發出 ${temp.in.shared.detectColor()} 光芒。`,
         );
       },
       updateForGone: () => {
-        chat.in.shared.pushAndShiftArray(
-          `${chat.in.shared.showNumber()} ${
+        temp.in.shared.pushAndShiftArray(
+          `${temp.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 產生激烈的 ${chat.in.shared.detectColor()} 光芒，一會兒後就消失了。`,
+          } 產生激烈的 ${temp.in.shared.detectColor()} 光芒，一會兒後就消失了。`,
         );
       },
       updateForNope: () => {
-        chat.in.shared.pushAndShiftArray(
-          `${chat.in.shared.showNumber()} ${
+        temp.in.shared.pushAndShiftArray(
+          `${temp.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 持續發出 激烈的 ${chat.in.shared.detectColor()}光芒，但是沒有任何事情發生。`,
+          } 持續發出 激烈的 ${temp.in.shared.detectColor()}光芒，但是沒有任何事情發生。`,
         );
       },
       updateForTwoUp: () => {
@@ -77,10 +77,10 @@ export const useChatStore = defineStore("chat", () => {
           ESTest(algorithmStore.data.target.name, "string");
         }
 
-        chat.in.shared.pushAndShiftArray(
-          `${chat.in.shared.showNumber()} ${
+        temp.in.shared.pushAndShiftArray(
+          `${temp.in.shared.showNumber()} ${
             algorithmStore.data.target.name
-          } 持續發出 ${chat.in.shared.detectColor()} 光芒。`,
+          } 持續發出 ${temp.in.shared.detectColor()} 光芒。`,
         );
       },
     },
@@ -93,27 +93,27 @@ export const useChatStore = defineStore("chat", () => {
         if (scrollStore.data.targetScroll === "none") return;
 
         if (scrollStore.data.targetScroll.includes("Armor")) {
-          chat.in.updateArmor();
+          temp.in.updateArmor();
         } else if (scrollStore.data.targetScroll.includes("Weapon")) {
-          chat.in.updateWeapon();
+          temp.in.updateWeapon();
         }
       },
       updateChatState: () => {
         if (algorithmStore.data.dice.state === -1) {
-          chat.in.updateForNope();
+          temp.in.updateForNope();
         } else if (algorithmStore.data.dice.state === 0) {
-          chat.in.updateForGone();
+          temp.in.updateForGone();
         } else if (algorithmStore.data.dice.state === 1) {
-          chat.in.updateForOne();
+          temp.in.updateForOne();
         } else {
-          chat.in.updateForTwoUp();
+          temp.in.updateForTwoUp();
         }
       },
     },
   };
 
   return {
-    data: chat.data,
-    out: chat.out,
+    data: temp.data,
+    out: temp.out,
   };
 });

@@ -1,6 +1,10 @@
 <template>
   <section id="🧱UIItems" @click.stop="handleClick">
-    <figure v-for="slot in data.slotList" :key="slot.id" :class="slot.hotkey">
+    <figure
+      v-for="slot in pageGameStore.data.slot"
+      :key="slot.id"
+      :class="slot.hotkey"
+    >
       <img :src="roleStore.out.getUrl(slot.src)" />
       <figcaption class="slotInfo">
         <h1>{{ slot.name }}</h1>
@@ -16,14 +20,16 @@ import { useChatStore } from "../stores/chat";
 import { useRoleStore } from "../stores/role";
 import { useScrollStore } from "../stores/scroll";
 import { onBeforeRouteLeave } from "vue-router";
-import dataSlot from "@/assets/data/dataSlot.json";
+import { usePageGameStore } from "../stores/pages/page-game";
+
+const pageGameStore = usePageGameStore();
+
 const roleStore = useRoleStore();
 const chatStore = useChatStore();
 const scrollStore = useScrollStore();
 
 const data = reactive({
   cssColor: "",
-  slotList: dataSlot,
 });
 
 function getSlotColor(imgUrl) {
@@ -83,7 +89,7 @@ function handleKeyboard(e) {
   handleSlot(e.key);
 }
 
-onMounted(() => {
+onMounted(async () => {
   document.addEventListener("keydown", handleKeyboard);
 });
 onBeforeRouteLeave(() => {
