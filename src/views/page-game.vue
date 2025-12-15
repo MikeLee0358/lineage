@@ -1,17 +1,19 @@
 <template>
-  <main id="🏠page-game">
-    <div id="🏠page-game__X">
-      <StatusBox />
-      <KnightBox />
-    </div>
+  <LayoutComp>
+    <main id="🏠page-game">
+      <div id="🏠page-game__X">
+        <StatusBox />
+        <KnightBox />
+      </div>
 
-    <div id="🏠page-game__X2">
-      <UIHealth />
-      <UIChat />
-      <UIItems />
-      <UINumbers />
-    </div>
-  </main>
+      <div id="🏠page-game__X2">
+        <UIHealth />
+        <UIChat />
+        <UIItems />
+        <UINumbers />
+      </div>
+    </main>
+  </LayoutComp>
 </template>
 
 <script setup>
@@ -21,6 +23,7 @@ import KnightBox from "../components/KnightBox.vue";
 import UIChat from "../components/UIChat.vue";
 import UIItems from "../components/UIItems.vue";
 import UINumbers from "../components/UINumbers.vue";
+import LayoutComp from "../layouts/LayoutComp.vue";
 </script>
 
 <style lang="scss">
