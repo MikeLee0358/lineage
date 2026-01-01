@@ -167,11 +167,9 @@ const dummyData = [
 
 export async function getApiRoleEquips() {
   // pretend api data back
-  const data = new Promise((resolve) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(dummyData);
     }, 500);
   });
-
-  return data;
 }

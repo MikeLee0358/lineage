@@ -1,4 +1,4 @@
-const MOCK_SLOT_DATA = [
+const dummyData = [
   {
     id: 0,
     hotkey: "F5",
@@ -59,11 +59,9 @@ const MOCK_SLOT_DATA = [
 
 export async function getApiSlot() {
   // pretend api data back
-  const data = new Promise((resolve) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(MOCK_SLOT_DATA);
-    }, 3000);
+      resolve(dummyData);
+    }, 500);
   });
-
-  return data;
 }
