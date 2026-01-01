@@ -10,7 +10,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
   const scrollStore = useScrollStore();
   const knightStore = useKnightStore();
 
-  const temp = {
+  const box = {
     data: reactive({
       dice: {
         bonus: 0,
@@ -32,26 +32,26 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
             ESTest(value, "number");
           }
 
-          temp.data.dice.state = Number(Math.floor(Math.random() * value) + 1);
+          box.data.dice.state = Number(Math.floor(Math.random() * value) + 1);
         },
         resetAtTheEnd: () => {
-          temp.data.dice.state = 0;
+          box.data.dice.state = 0;
           scrollStore.data.targetScroll = "none";
         },
         handleUpdate: () => {
           chatStore.out.updateChatState();
-          temp.in.updateEquipValue();
-          temp.in.shared.resetAtTheEnd();
+          box.in.updateEquipValue();
+          box.in.shared.resetAtTheEnd();
         },
         handleUpdateOver9: () => {
-          // temp.data.dice.state:
+          // box.data.dice.state:
           //  1: +1 msg
           // -1: nothing happened msg
 
           //white: +1
           if (scrollStore.out.getIsScrollType("white") && isSuccessIn([1, 2])) {
-            temp.data.target.value++;
-            temp.data.dice.state = 1;
+            box.data.target.value++;
+            box.data.dice.state = 1;
             knightStore.out.getGameChatEvent("weaponSuccess");
           }
           //cursed: +1
@@ -59,8 +59,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
             scrollStore.out.getIsScrollType("cursed") &&
             isSuccessIn([1, 2, 3])
           ) {
-            temp.data.target.value--;
-            temp.data.dice.state = 1;
+            box.data.target.value--;
+            box.data.dice.state = 1;
             knightStore.out.getGameChatEvent("weaponSuccess");
           }
           //blessed: +1
@@ -68,26 +68,26 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
             scrollStore.out.getIsScrollType("blessed") &&
             isSuccessIn([1, 2, 3, 4])
           ) {
-            temp.data.target.value++;
-            temp.data.dice.state = 1;
+            box.data.target.value++;
+            box.data.dice.state = 1;
             knightStore.out.getGameChatEvent("weaponSuccess");
           }
           // Nothing happened message
           else {
-            temp.data.dice.state = -1;
+            box.data.dice.state = -1;
             knightStore.out.getGameChatEvent("weaponNope");
           }
 
           chatStore.out.updateChatState();
-          temp.in.shared.resetAtTheEnd();
+          box.in.shared.resetAtTheEnd();
 
           function isSuccessIn(array) {
-            return array.includes(temp.data.dice.state);
+            return array.includes(box.data.dice.state);
           }
         },
       },
       getDiceValue: () => {
-        temp.data.dice.value = Number((Math.random() * 100).toFixed(2));
+        box.data.dice.value = Number((Math.random() * 100).toFixed(2));
       },
       handleFailure: (equip, event) => {
         {
@@ -98,19 +98,19 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           ESTest(event, "object");
         }
 
-        if (Math.abs(temp.data.target.value) === 9) {
+        if (Math.abs(box.data.target.value) === 9) {
           knightStore.out.getGameChatEvent("weaponFailure");
         }
 
-        temp.data.dice.state = 0;
-        temp.data.target.value = 0;
+        box.data.dice.state = 0;
+        box.data.target.value = 0;
         chatStore.out.updateChatState();
         getEquipGoneEffect();
-        temp.in.shared.resetAtTheEnd();
+        box.in.shared.resetAtTheEnd();
 
         function getEquipGoneEffect() {
-          let tempArmor = equip.armor;
-          let tempMr = equip.mr;
+          let boxArmor = equip.armor;
+          let boxMr = equip.mr;
 
           goneEffect();
           revertEffect();
@@ -122,8 +122,8 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           function revertEffect() {
             setTimeout(function () {
               toggleEquipHidden();
-              equip.armor = tempArmor;
-              equip.mr = tempMr;
+              equip.armor = boxArmor;
+              equip.mr = boxMr;
             }, 3000);
           }
           function toggleEquipHidden() {
@@ -133,25 +133,25 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       updateEquipValue: () => {
         if (scrollStore.out.getIsScrollType("cursed")) {
-          temp.data.target.value--;
+          box.data.target.value--;
         } else {
-          temp.data.target.value += temp.data.dice.state;
+          box.data.target.value += box.data.dice.state;
         }
       },
       getTargetCategoryEquipType: () => {
         {
-          ESTest(temp.data.target.category, "string");
+          ESTest(box.data.target.category, "string");
         }
 
-        return temp.data.target.category.substring(0, 6).toLowerCase().trim();
+        return box.data.target.category.substring(0, 6).toLowerCase().trim();
       },
       getDiceSuccessValue: () => {
         if (getIsSpecialCases()) {
-          temp.data.dice.successValue = 100;
-        } else if (temp.out.getIsCategoryType("weapon")) {
-          temp.in.getWeaponSuccessValue();
-        } else if (temp.out.getIsCategoryType("armor")) {
-          temp.in.getArmorSuccessValue();
+          box.data.dice.successValue = 100;
+        } else if (box.out.getIsCategoryType("weapon")) {
+          box.in.getWeaponSuccessValue();
+        } else if (box.out.getIsCategoryType("armor")) {
+          box.in.getArmorSuccessValue();
         }
 
         function getIsSpecialCases() {
@@ -161,83 +161,80 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
 
           return (
             (scrollStore.out.getIsScrollType("white") &&
-              temp.data.target.value < 0) ||
+              box.data.target.value < 0) ||
             (scrollStore.out.getIsScrollType("blessed") &&
-              temp.data.target.value < 0) ||
+              box.data.target.value < 0) ||
             (scrollStore.out.getIsScrollType("cursed") &&
-              temp.data.target.value >= Math.abs(temp.data.target.safetyValue))
+              box.data.target.value >= Math.abs(box.data.target.safetyValue))
           );
         }
       },
       getArmorSuccessValue: () => {
         {
-          ESTest(temp.data.target.value, "number");
-          ESTest(temp.data.target.safetyValue, "number").min(0);
-          ESTest(temp.data.dice.bonus, "number").min(0);
+          ESTest(box.data.target.value, "number");
+          ESTest(box.data.target.safetyValue, "number").min(0);
+          ESTest(box.data.dice.bonus, "number").min(0);
         }
 
         /* Armor Formula */
 
         //|underSafetyValue|:100%
-        if (Math.abs(temp.data.target.value) < temp.data.target.safetyValue) {
-          temp.data.dice.successValue = 100 + temp.data.dice.bonus;
+        if (Math.abs(box.data.target.value) < box.data.target.safetyValue) {
+          box.data.dice.successValue = 100 + box.data.dice.bonus;
         }
         // |9up|:10%
-        else if (Math.abs(temp.data.target.value) >= 9) {
-          temp.data.dice.successValue = 10 + temp.data.dice.bonus;
+        else if (Math.abs(box.data.target.value) >= 9) {
+          box.data.dice.successValue = 10 + box.data.dice.bonus;
         }
         // |0~8|:1/n * 100%
         else {
-          temp.data.dice.successValue =
-            (1 / Math.abs(temp.data.target.value)) * 100 + temp.data.dice.bonus;
+          box.data.dice.successValue =
+            (1 / Math.abs(box.data.target.value)) * 100 + box.data.dice.bonus;
         }
       },
       getWeaponSuccessValue: () => {
         {
-          ESTest(temp.data.target.value, "number");
-          ESTest(temp.data.target.safetyValue, "number").min(0);
-          ESTest(temp.data.dice.bonus, "number");
+          ESTest(box.data.target.value, "number");
+          ESTest(box.data.target.safetyValue, "number").min(0);
+          ESTest(box.data.dice.bonus, "number");
         }
         /* Weapon Formula */
 
         //|underSafetyValue|:100%
-        if (Math.abs(temp.data.target.value) < temp.data.target.safetyValue) {
-          temp.data.dice.successValue = 100 + temp.data.dice.bonus;
+        if (Math.abs(box.data.target.value) < box.data.target.safetyValue) {
+          box.data.dice.successValue = 100 + box.data.dice.bonus;
         }
         //|9up|:10%
-        else if (Math.abs(temp.data.target.value) >= 9) {
-          temp.data.dice.successValue = 10 + temp.data.dice.bonus;
+        else if (Math.abs(box.data.target.value) >= 9) {
+          box.data.dice.successValue = 10 + box.data.dice.bonus;
         }
         //|0~8|:33.33%
         else {
-          temp.data.dice.successValue = 33.33 + temp.data.dice.bonus;
+          box.data.dice.successValue = 33.33 + box.data.dice.bonus;
         }
       },
       getIsSuccess: () => {
         {
-          ESTest(temp.data.dice.successValue, "number");
-          ESTest(temp.data.dice.value, "number");
+          ESTest(box.data.dice.successValue, "number");
+          ESTest(box.data.dice.value, "number");
         }
 
-        temp.in.getDiceValue();
-        temp.in.getDiceSuccessValue();
+        box.in.getDiceValue();
+        box.in.getDiceSuccessValue();
 
-        return temp.data.dice.successValue >= temp.data.dice.value;
+        return box.data.dice.successValue >= box.data.dice.value;
       },
       getIsMatchedScrollEquipType: () => {
-        return (
-          scrollStore.out.getScrollEquipType() ===
-          temp.in.getTargetCategoryEquipType()
-        );
+        return scrollStore.out.getScrollEquipType() === box.in.getTargetCategoryEquipType();
       },
     },
     out: {
       getIsCategoryType: (text) => {
         {
-          ESTest(temp.data.target.category, "string");
+          ESTest(box.data.target.category, "string");
         }
 
-        return temp.data.target.category
+        return box.data.target.category
           .toLowerCase()
           .includes(text.toLowerCase());
       },
@@ -246,60 +243,60 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
           ESTest(equip, "object");
           ESTest(event, "object");
           ESTest(knightStore.data.isStopFunction, "boolean");
-          ESTest(temp.in.getIsMatchedScrollEquipType(), "boolean");
-          ESTest(temp.in.getIsSuccess(), "boolean");
+          ESTest(box.in.getIsMatchedScrollEquipType(), "boolean");
+          ESTest(box.in.getIsSuccess(), "boolean");
         }
 
         if (knightStore.data.isStopFunction) return;
-        if (!temp.in.getIsMatchedScrollEquipType()) return;
+        if (!box.in.getIsMatchedScrollEquipType()) return;
 
-        if (temp.in.getIsSuccess()) {
+        if (box.in.getIsSuccess()) {
           switch (scrollStore.out.getScrollType()) {
             case "blessed":
-              if (temp.data.target.value < 3) {
-                temp.in.shared.getRandomStateOneTo(3);
-                temp.in.shared.handleUpdate();
-              } else if (temp.data.target.value < 6) {
-                temp.in.shared.getRandomStateOneTo(2);
-                temp.in.shared.handleUpdate();
-              } else if (temp.data.target.value < 9) {
-                temp.in.shared.getRandomStateOneTo(1);
-                temp.in.shared.handleUpdate();
+              if (box.data.target.value < 3) {
+                box.in.shared.getRandomStateOneTo(3);
+                box.in.shared.handleUpdate();
+              } else if (box.data.target.value < 6) {
+                box.in.shared.getRandomStateOneTo(2);
+                box.in.shared.handleUpdate();
+              } else if (box.data.target.value < 9) {
+                box.in.shared.getRandomStateOneTo(1);
+                box.in.shared.handleUpdate();
               } else {
-                temp.in.shared.getRandomStateOneTo(6);
-                temp.in.shared.handleUpdateOver9();
+                box.in.shared.getRandomStateOneTo(6);
+                box.in.shared.handleUpdateOver9();
               }
               break;
 
             case "white":
-              if (temp.data.target.value < 9) {
-                temp.in.shared.getRandomStateOneTo(1);
-                temp.in.shared.handleUpdate();
+              if (box.data.target.value < 9) {
+                box.in.shared.getRandomStateOneTo(1);
+                box.in.shared.handleUpdate();
               } else {
-                temp.in.shared.getRandomStateOneTo(6);
-                temp.in.shared.handleUpdateOver9();
+                box.in.shared.getRandomStateOneTo(6);
+                box.in.shared.handleUpdateOver9();
               }
               break;
 
             case "cursed":
-              if (temp.data.target.value > -9) {
-                temp.in.shared.getRandomStateOneTo(1);
-                temp.in.shared.handleUpdate();
+              if (box.data.target.value > -9) {
+                box.in.shared.getRandomStateOneTo(1);
+                box.in.shared.handleUpdate();
               } else {
-                temp.in.shared.getRandomStateOneTo(6);
-                temp.in.shared.handleUpdateOver9();
+                box.in.shared.getRandomStateOneTo(6);
+                box.in.shared.handleUpdateOver9();
               }
               break;
           }
         } else {
-          temp.in.handleFailure(equip, event);
+          box.in.handleFailure(equip, event);
         }
       },
     },
   };
 
   return {
-    data: temp.data,
-    out: temp.out,
+    data: box.data,
+    out: box.out,
   };
 });
