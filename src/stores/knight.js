@@ -8,21 +8,21 @@ export const useKnightStore = defineStore("knight", () => {
   const chatStore = useChatStore();
   const algorithmStore = useAlgorithmStore();
 
-  const temp = {
+  const box = {
     data: reactive({
       chatMsg: "",
       isShowGameChat: false,
       isStopFunction: false,
     }),
     in: {
-      GameChatTime: (second) => {
+      setChatTimeout: (second) => {
         {
           ESTest(second, "number");
         }
 
-        setTimeout(function () {
-          temp.data.isShowGameChat = false;
-          temp.data.isStopFunction = false;
+        setTimeout(() => {
+          box.data.isShowGameChat = false;
+          box.data.isStopFunction = false;
           algorithmStore.data.dice.bonus = 0;
         }, second * 1000);
       },
@@ -47,86 +47,86 @@ export const useKnightStore = defineStore("knight", () => {
 
         switch (chatEvent) {
           case "weaponSuccess":
-            temp.data.chatMsg = "果然是天選之人... 佩服佩服";
+            box.data.chatMsg = "果然是天選之人... 佩服佩服";
             break;
 
           case "weaponFailure":
-            temp.data.chatMsg = "10%機率可不是叫假的誒";
+            box.data.chatMsg = "10%機率可不是叫假的誒";
             break;
 
           case "weaponNope":
-            temp.data.chatMsg = "NOT TODAY!";
+            box.data.chatMsg = "NOT TODAY!";
             break;
 
           case "talk0":
             algorithmStore.data.dice.bonus = 50;
-            temp.data.chatMsg = "似乎有風圍繞在你的滑鼠";
+            box.data.chatMsg = "似乎有風圍繞在你的滑鼠";
             break;
 
           case "talk1":
             algorithmStore.data.dice.bonus = 25;
-            temp.data.chatMsg = "似乎有微風圍繞在你的滑鼠";
+            box.data.chatMsg = "似乎有微風圍繞在你的滑鼠";
             break;
 
           case "talk2":
             algorithmStore.data.dice.bonus = -100;
-            temp.data.chatMsg = "似乎有詛咒圍繞在你的滑鼠";
+            box.data.chatMsg = "似乎有詛咒圍繞在你的滑鼠";
             break;
 
           case "talk3":
-            temp.data.isStopFunction = true;
-            temp.data.chatMsg = "似乎有阻力圍繞在你的滑鼠";
+            box.data.isStopFunction = true;
+            box.data.chatMsg = "似乎有阻力圍繞在你的滑鼠";
             break;
 
           case "talk4":
-            temp.data.chatMsg = "用白的衝10只有33%成功率";
+            box.data.chatMsg = "用白的衝10只有33%成功率";
             break;
 
           case "talk5":
-            temp.data.chatMsg = "用祝福的衝10只有66%成功率";
+            box.data.chatMsg = "用祝福的衝10只有66%成功率";
             break;
 
           case "talk6":
-            temp.data.chatMsg = "用紅的衝10只有50%成功率";
+            box.data.chatMsg = "用紅的衝10只有50%成功率";
             break;
 
           case "talk7":
-            temp.data.chatMsg = "試著點戒指變身看看吧！";
+            box.data.chatMsg = "試著點戒指變身看看吧！";
             break;
 
           case "talk8":
-            temp.data.chatMsg = "講個笑話給你聽 有一天............哈哈";
+            box.data.chatMsg = "講個笑話給你聽 有一天............哈哈";
             break;
 
           case "talk9":
-            chatStore.data.lines = temp.in.getArrayFull(
+            chatStore.data.lines = box.in.getArrayFull(
               Array(7),
               "國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國",
             );
-            temp.data.chatMsg =
+            box.data.chatMsg =
               "國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國國";
             break;
         }
 
-        temp.data.isShowGameChat = true;
-        temp.in.GameChatTime(10);
+        box.data.isShowGameChat = true;
+        box.in.setChatTimeout(10);
       },
       repeatTalkChatEvent: (second) => {
         {
           ESTest(second, "number");
         }
 
-        setInterval(function () {
-          const randomNum = Math.floor(Math.random() * 10);
+        setInterval(() => {
+          const talkToken = `talk${Math.floor(Math.random() * 10)}`;
 
-          temp.out.getGameChatEvent(`talk${randomNum}`);
+          box.out.getGameChatEvent(talkToken);
         }, second * 1000);
       },
     },
   };
 
   return {
-    data: temp.data,
-    out: temp.out,
+    data: box.data,
+    out: box.out,
   };
 });
