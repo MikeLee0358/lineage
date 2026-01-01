@@ -225,7 +225,10 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
         return box.data.dice.successValue >= box.data.dice.value;
       },
       getIsMatchedScrollEquipType: () => {
-        return scrollStore.out.getScrollEquipType() === box.in.getTargetCategoryEquipType();
+        return (
+          scrollStore.out.getScrollEquipType() ===
+          box.in.getTargetCategoryEquipType()
+        );
       },
     },
     out: {

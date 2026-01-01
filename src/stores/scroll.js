@@ -51,7 +51,7 @@ export const useScrollStore = defineStore("scroll", () => {
       },
       getScrollType: () => {
         {
-          ESTest(box.data.targetScroll, 'string')
+          ESTest(box.data.targetScroll, "string");
         }
 
         if (box.data.targetScroll === "none") return;
