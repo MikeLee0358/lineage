@@ -1,7 +1,1 @@
 @import "tailwindcss";
-
-/* status class */
-.--hidden {
-  visibility: hidden !important;
-  opacity: 0 !important;
-}

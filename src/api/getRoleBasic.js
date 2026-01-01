@@ -19,7 +19,7 @@ export async function getApiRoleBasic() {
   const data = new Promise((resolve) => {
     setTimeout(() => {
       resolve(dummyData);
-    }, 3000);
+    }, 500);
   });
 
   return data;

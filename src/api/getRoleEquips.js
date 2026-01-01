@@ -170,7 +170,7 @@ export async function getApiRoleEquips() {
   const data = new Promise((resolve) => {
     setTimeout(() => {
       resolve(dummyData);
-    }, 3000);
+    }, 500);
   });
 
   return data;

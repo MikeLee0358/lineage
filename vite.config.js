@@ -16,6 +16,8 @@ export default defineConfig({
       scss: {
         additionalData: `
           @use '/src/assets/scss/_escss.scss' as *;
+          @use '/src/assets/scss/_id.scss' as *;
+          @use '/src/assets/scss/_class.scss' as *;
         `,
       },
     },
