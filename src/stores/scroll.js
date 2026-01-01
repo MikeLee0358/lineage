@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { ESTest } from "escss-estest";
 
 export const useScrollStore = defineStore("scroll", () => {
-  const temp = {
+  const box = {
     data: reactive({
       targetScroll: "none",
       clickTimerId: 0,
@@ -16,30 +16,30 @@ export const useScrollStore = defineStore("scroll", () => {
 
         switch (string) {
           case "F6":
-            temp.data.targetScroll = "whiteArmor";
+            box.data.targetScroll = "whiteArmor";
             break;
 
           case "F7":
-            temp.data.targetScroll = "blessedArmor";
+            box.data.targetScroll = "blessedArmor";
             break;
 
           case "F8":
-            temp.data.targetScroll = "cursedArmor";
+            box.data.targetScroll = "cursedArmor";
             break;
           case "F10":
-            temp.data.targetScroll = "whiteWeapon";
+            box.data.targetScroll = "whiteWeapon";
             break;
 
           case "F11":
-            temp.data.targetScroll = "blessedWeapon";
+            box.data.targetScroll = "blessedWeapon";
             break;
 
           case "F12":
-            temp.data.targetScroll = "cursedWeapon";
+            box.data.targetScroll = "cursedWeapon";
             break;
 
           default:
-            temp.data.targetScroll = "none";
+            box.data.targetScroll = "none";
             break;
         }
       },
@@ -47,35 +47,35 @@ export const useScrollStore = defineStore("scroll", () => {
         {
           ESTest(type, "string");
         }
-        return temp.out.getScrollType() === type;
+        return box.out.getScrollType() === type;
       },
       getScrollType: () => {
-        if (temp.data.targetScroll === "none") return;
+        if (box.data.targetScroll === "none") return;
 
-        return /(white)|(cursed)|(blessed)/g.exec(temp.data.targetScroll)[0];
+        return /(white)|(cursed)|(blessed)/g.exec(box.data.targetScroll)[0];
       },
       getScrollEquipType: () => {
         {
-          ESTest(temp.data.targetScroll, "string");
+          ESTest(box.data.targetScroll, "string");
         }
 
-        if (temp.data.targetScroll === "none") return;
+        if (box.data.targetScroll === "none") return;
 
         return /(Armor)|(Weapon)/g
-          .exec(temp.data.targetScroll)[0]
+          .exec(box.data.targetScroll)[0]
           .toLocaleLowerCase();
       },
       clearClickScrollTimer: () => {
         {
-          ESTest(temp.data.clickTimerId, "number");
+          ESTest(box.data.clickTimerId, "number");
         }
-        clearInterval(temp.data.clickTimerId);
+        clearInterval(box.data.clickTimerId);
       },
     },
   };
 
   return {
-    data: temp.data,
-    out: temp.out,
+    data: box.data,
+    out: box.out,
   };
 });
