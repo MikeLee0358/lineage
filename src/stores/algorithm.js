@@ -91,10 +91,7 @@ export const useAlgorithmStore = defineStore("algorithm", () => {
       },
       handleFailure: (equip, event) => {
         {
-          ESTest(equip, "object").schema({
-            armor: "string",
-            mr: "string",
-          });
+          ESTest(equip, "object");
           ESTest(event, "object");
         }
 
