@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { getApiRoleBasic, getApiRoleEquips, getApiSlot } from "../../api";
 
 export const usePageGameStore = defineStore("page-game", () => {
-  const temp = {
+  const box = {
     data: reactive({
       slot: [],
       basic: {},
@@ -13,7 +13,7 @@ export const usePageGameStore = defineStore("page-game", () => {
       getAC: () => {
         let totalEquipsAC = 0;
 
-        temp.data.equips.forEach((roleEquip) => {
+        box.data.equips.forEach((roleEquip) => {
           const isArmor = computed(() => /armor/g.test(roleEquip.category));
           const calcTotalEquipAC = computed(
             () => (totalEquipsAC += roleEquip.armor + roleEquip.value),
@@ -24,7 +24,7 @@ export const usePageGameStore = defineStore("page-game", () => {
           }
         });
 
-        return temp.data.basic.ac - totalEquipsAC;
+        return box.data.basic.ac - totalEquipsAC;
       },
     },
   };
@@ -36,13 +36,13 @@ export const usePageGameStore = defineStore("page-game", () => {
       getApiRoleEquips(),
     ]);
 
-    temp.data.slot = apiSlot.value;
-    temp.data.basic = apiRoleBasic.value;
-    temp.data.equips = apiRoleEquips.value;
+    box.data.slot = apiSlot.value;
+    box.data.basic = apiRoleBasic.value;
+    box.data.equips = apiRoleEquips.value;
   });
 
   return {
-    data: temp.data,
-    out: temp.out,
+    data: box.data,
+    out: box.out,
   };
 });
