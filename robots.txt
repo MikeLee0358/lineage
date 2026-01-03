@@ -1,0 +1,7 @@
+# 允許所有搜尋引擎抓取全站
+User-agent: *
+Allow: /
+
+# 阻擋抓取敏感或無意義的頁面 (依需求修改)
+Disallow: /src/
+Disallow: /test/
