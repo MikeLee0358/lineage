@@ -15,7 +15,7 @@
       <span id="🧱StatusNumbers__X2__Mp">
         {{ pageGameStore.data.basic.mp }}/{{ pageGameStore.data.basic.mp }}
       </span>
-      <li id="🧱StatusNumbers__X2__Ac">{{ pageGameStore.out.getAC() }}</li>
+      <span id="🧱StatusNumbers__X2__Ac">{{ pageGameStore.out.getAC() }}</span>
     </div>
     <ul id="🧱StatusNumbers__X3">
       <li id="🧱StatusNumbers__X3__Str">
@@ -37,7 +37,7 @@
         {{ pageGameStore.data.basic.cha }}
       </li>
     </ul>
-    <li id="🧱StatusNumbers__Er">{{ pageGameStore.data.basic.er }}</li>
+    <span id="🧱StatusNumbers__Er">{{ pageGameStore.data.basic.er }}</span>
   </section>
 </template>
 
