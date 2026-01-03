@@ -1,3 +1,12 @@
+export async function getApiSlot() {
+  // pretend api data back
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(dummyData);
+    }, 0);
+  });
+}
+
 const dummyData = [
   {
     id: 0,
@@ -56,12 +65,3 @@ const dummyData = [
     description: "強化成功可將武器強化數值(-1)",
   },
 ];
-
-export async function getApiSlot() {
-  // pretend api data back
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dummyData);
-    }, 500);
-  });
-}

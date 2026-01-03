@@ -1,3 +1,12 @@
+export async function getApiRoleEquips() {
+  // pretend api data back
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(dummyData);
+    }, 0);
+  });
+}
+
 const dummyData = [
   {
     id: 0,
@@ -165,11 +174,4 @@ const dummyData = [
   },
 ];
 
-export async function getApiRoleEquips() {
-  // pretend api data back
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dummyData);
-    }, 500);
-  });
-}
+

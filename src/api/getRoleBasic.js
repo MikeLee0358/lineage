@@ -1,3 +1,12 @@
+export async function getApiRoleBasic() {
+  // pretend api data back
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(dummyData);
+    }, 0);
+  });
+}
+
 const dummyData = {
   lv: 1,
   exp: "0.00%",
@@ -13,12 +22,3 @@ const dummyData = {
   wis: 8,
   cha: 12,
 };
-
-export async function getApiRoleBasic() {
-  // pretend api data back
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dummyData);
-    }, 500);
-  });
-}
