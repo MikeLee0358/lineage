@@ -5,7 +5,10 @@
       :key="slot.id"
       :class="slot.hotkey"
     >
-      <img :src="`/${slot.src}`" alt="an equipment image in game lineage about armor or weapon" />
+      <img
+        :src="`/${slot.src}`"
+        alt="an equipment image in game lineage about armor or weapon"
+      />
       <figcaption class="slotInfo">
         <h1>{{ slot.name }}</h1>
         <p>{{ slot.description }}</p>
