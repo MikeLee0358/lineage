@@ -1,11 +1,7 @@
 # 天堂衝裝模擬器
 
-## Live Demo
-- [v2](https://lineage-v2.netlify.app/):
-  實務歷練後，專注於`衝裝備功能`、`架構之美`。
-
-- [v1](https://mikelee0358.github.io/LineageEmulator/#/login):
-  新手時期作品，`什麼都想要` (多角色、音效、未來可能性、遊戲擴充性...)。
+## DEMO 網址
+  https://lineage-v2.netlify.app/#/page-game
 
 ## 目的 
   個人的 Web 技術練功場，記錄階段性成長。
