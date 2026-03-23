@@ -48,12 +48,13 @@ import LayoutComp from "../layouts/LayoutComp.vue";
     }
 
     &::after {
-      content: "請切換橫幅模式";
+      content: "橫幅模式或瀏覽器開啟(右上角)";
       width: 100vw;
       height: 100vh;
       display: grid;
-      place-items: center;
-      font-size: 12vw;
+      align-items: center;
+      text-align: center;
+      font-size: 10vw;
     }
   }
 }
