@@ -38,7 +38,7 @@ import LayoutComp from "../layouts/LayoutComp.vue";
   background-repeat: round;
   cursor: url("/UI/UI_pointer.webp"), auto;
 
-  @media (orientation: portrait) {
+  @media (orientation: portrait), (max-width: 500px) {
     & {
       background-image: none;
     }
