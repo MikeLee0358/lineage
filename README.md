@@ -1,7 +1,7 @@
 # 天堂衝裝模擬器
 
 ## DEMO 網址
-  https://lineage-v2.netlify.app/#/page-game
+  https://lineage-v2.netlify.app/#/pageGame
 
 ## 目的 
   個人的 Web 技術練功場，記錄階段性成長。

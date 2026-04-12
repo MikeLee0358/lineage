@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { usePageGameStore } from "../stores/pages/page-game";
+import { usePageGameStore } from "../stores/pages/pageGame";
 
 const pageGameStore = usePageGameStore();
 </script>

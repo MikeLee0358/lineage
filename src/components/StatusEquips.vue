@@ -19,7 +19,7 @@ import { useScrollStore } from "../stores/scroll";
 import { useAlgorithmStore } from "../stores/algorithm";
 const algorithmStore = useAlgorithmStore();
 const scrollStore = useScrollStore();
-import { usePageGameStore } from "../stores/pages/page-game";
+import { usePageGameStore } from "../stores/pages/pageGame";
 
 const pageGameStore = usePageGameStore();
 

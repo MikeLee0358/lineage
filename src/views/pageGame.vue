@@ -1,12 +1,12 @@
 <template>
   <LayoutComp>
-    <main id="🏠page-game">
-      <div id="🏠page-game__X">
+    <main id="🏠pageGame">
+      <div id="🏠pageGame__X">
         <StatusBox />
         <KnightBox />
       </div>
 
-      <div id="🏠page-game__X2">
+      <div id="🏠pageGame__X2">
         <UIHealth />
         <UIChat />
         <UIItems />
@@ -27,7 +27,7 @@ import LayoutComp from "../layouts/LayoutComp.vue";
 </script>
 
 <style lang="scss">
-#🏠page-game {
+#🏠pageGame {
   background: black;
   color: #e5e7eb;
   height: 100vh;
@@ -59,12 +59,12 @@ import LayoutComp from "../layouts/LayoutComp.vue";
   }
 }
 
-#🏠page-game__X {
+#🏠pageGame__X {
   position: relative;
   height: 73%;
 }
 
-#🏠page-game__X2 {
+#🏠pageGame__X2 {
   display: grid;
   grid-template-columns: 17.5% 1fr 23%;
   grid-template-rows: 20% 64% 16%;

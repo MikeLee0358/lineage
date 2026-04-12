@@ -2,7 +2,7 @@ import { reactive, onMounted, computed } from "vue";
 import { defineStore } from "pinia";
 import { getApiRoleBasic, getApiRoleEquips, getApiSlot } from "../../api";
 
-export const usePageGameStore = defineStore("page-game", () => {
+export const usePageGameStore = defineStore("pageGame", () => {
   const box = {
     data: reactive({
       slot: [],

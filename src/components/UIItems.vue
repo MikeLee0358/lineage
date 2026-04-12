@@ -21,7 +21,7 @@
 import { reactive } from "vue";
 import { useChatStore } from "../stores/chat";
 import { useScrollStore } from "../stores/scroll";
-import { usePageGameStore } from "../stores/pages/page-game";
+import { usePageGameStore } from "../stores/pages/pageGame";
 
 const pageGameStore = usePageGameStore();
 const chatStore = useChatStore();

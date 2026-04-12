@@ -173,5 +173,3 @@ const dummyData = [
     feature: null,
   },
 ];
-
-
