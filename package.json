@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "e2e": "playwright test --workers 6",
-    "check": "prettier src --write --cache & eslint src/**/*.{vue,js} --cache"
+    "check": "prettier src --write --cache & eslint 'src/**/*.{vue,js}' --cache"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
