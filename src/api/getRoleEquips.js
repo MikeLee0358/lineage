@@ -1,7 +1,29 @@
+import { ESTest } from "escss-estest";
+
 export async function getApiRoleEquips() {
   // pretend api data back
   return new Promise((resolve) => {
     setTimeout(() => {
+      {
+        ESTest(dummyData, "array", "api 與格式不符").schema({
+          id: "number",
+          name: "string",
+          src: "string",
+          category: "string",
+          attack: {
+            small: "number",
+            large: "number",
+          },
+          grip: "string",
+          value: "number",
+          safetyValue: "number",
+          material: "string",
+          weight: "number",
+          occupation: "string",
+          feature: "string",
+        });
+      }
+
       resolve(dummyData);
     }, 0);
   });
